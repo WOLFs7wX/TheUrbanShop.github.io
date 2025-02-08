@@ -65,9 +65,8 @@
     background: purple;
     color: rgb(255, 48, 255);
     padding: 0,7em 4em;
-    position: static;
+    position: relative;
     border-radius: 15px;
-
   }
   .loader>span {
     font-size: 50px;
@@ -78,7 +77,6 @@
     transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
   }
-  
   @keyframes flip {
     35% {
       transform: rotatex(360deg);
@@ -88,31 +86,24 @@
       transform: rotatex(360deg);
     }
   }
-  
   .loader>span:nth-child(even) {
     color:  rgb(0, 183, 255);
   }
-  
   .loader>span:nth-child(2) {
     animation-delay: 0.3s;
   }
-  
   .loader>span:nth-child(3) {
     animation-delay: 0.6s;
   }
-  
   .loader>span:nth-child(4) {
     animation-delay: 0.9s;
   }
-  
   .loader>span:nth-child(5) {
     animation-delay: 1.2s;
   }
-  
   .loader>span:nth-child(6) {
     animation-delay: 1.5s
   }
-  
   .loader>span:nth-child(7) {
     animation-delay: 1.8s
   }
@@ -123,9 +114,8 @@
     position: relative;
     height: 400px;
     overflow: hidden;
-    
+   
 }
-
 .slider {
     display: flex;
     height: 100%;
@@ -205,7 +195,6 @@
     border-radius: 20px;
     height: 400px;
 }
-
 .product-image {
     width: 95%;
     height: 95%;
@@ -215,7 +204,6 @@
     border-radius: 15px;
     z-index: 2; 
 }
-
 .product-card::before {
     content: '';
     position: absolute;
@@ -226,7 +214,6 @@
     transition: all 0.2s linear;
     z-index: 1;
 }
-
 .product-card::after {
     content: '';
     position: absolute;
@@ -235,7 +222,6 @@
     border-radius: 15px;
     z-index: 1; /* Mantenemos el fondo oscuro detrás de la imagen */
 }
-
 .product-info {
     position: absolute;
     bottom: 0;
@@ -278,13 +264,10 @@
 }
 
 .product-description {
-    font-size: 0.875rem; /* Aumentado ligeramente */
     line-height: 1.4;
     margin-bottom: 1rem;
     opacity: 0;
-    transition: all var(--transition-speed) ease;
-    max-height: 150px; /* Altura máxima para la descripción */
-    overflow-y: auto;
+
 }
 
 .product-price {
@@ -525,33 +508,77 @@
                 height: 200px;
             }
         }
-/*================
+        /*================
             reposive
         ==================*/
 
-        /* Estilos base para todos los dispositivos */
+ /* Variables globales con breakpoints */
 :root {
-    --card-min-width: 280px;
-    --card-height-desktop: 400px;
-    --card-height-tablet: 350px;
-    --card-height-mobile: 300px;
+    --mobile-s: 320px;
+    --mobile-m: 375px;
+    --mobile-l: 425px;
+    --tablet: 768px;
+    --laptop: 1024px;
+    --laptop-l: 1440px;
+    --desktop: 1920px;
 }
 
-/* Grid de productos responsive */
+/* Optimización del loader/logo para todos los dispositivos */
+.loader {
+    padding: min(4vw, 2rem);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.loader > span {
+    font-size: clamp(1.5rem, 3vw, 3rem);
+    line-height: 1.2;
+}
+
+/* Grid de productos adaptativo */
+.products-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: clamp(0.5rem, 2vw, 2rem);
+}
+
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(var(--card-min-width), 1fr));
-    gap: 2rem;
-    padding: 1rem;
-    max-width: 1400px;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: clamp(1rem, 2vw, 2rem);
+    width: 100%;
+}
+
+/* Cards de producto responsive */
+.product-card {
+    height: clamp(300px, 60vh, 400px);
+    width: 100%;
     margin: 0 auto;
 }
 
-/* Ajustes del slider responsive */
+.product-info {
+    padding: clamp(1rem, 3vw, 1.5rem);
+    max-height: 85%;
+}
+
+.product-title {
+    font-size: clamp(1.5rem, 1.5vw, 1.25rem);
+    margin-bottom: 0.5em;
+}
+
+.product-description {
+    font-size: clamp(0.75rem, 1.2vw, 0.875rem);
+    line-height: 1.4;
+    max-height: clamp(80px, 30vh, 150px);
+}
+
+/* Slider responsive */
 .slider-container {
-    height: 60vh;
-    max-height: 600px;
-    min-height: 300px;
+    height: clamp(250px, 50vh, 400px);
+    width: 100%;
 }
 
 .slide img {
@@ -560,172 +587,247 @@
     object-fit: contain;
 }
 
-/* Logo responsive */
-.loader {
-    padding: 0.5em 2em;
-    width: 100%;
-    display: flex;
-    justify-content: center;
+/* Controles del slider adaptables */
+.slider-btn {
+    padding: clamp(0.5rem, 2vw, 1rem);
+    font-size: clamp(1rem, 2vw, 1.5rem);
 }
 
-.loader > span {
-    font-size: clamp(24px, 4vw, 50px);
-}
-
-/* Cards de productos responsive */
-.product-card {
-    height: var(--card-height-desktop);
-    width: 100%;
-    min-width: var(--card-min-width);
-    margin: 0 auto;
-}
-
-.product-info {
-    padding: clamp(1rem, 3vw, 2rem);
-}
-
-.product-title {
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
-}
-
-.product-description {
-    font-size: clamp(0.8rem, 2vw, 0.875rem);
-}
-
-.product-price {
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
-}
-
-.product-button {
-    padding: clamp(0.5rem, 2vw, 0.8rem) clamp(1rem, 3vw, 1.5rem);
-    font-size: clamp(0.8rem, 2vw, 1rem);
-}
-
-/* Media Queries */
-/* Pantallas grandes (1200px y superiores) */
-@media (min-width: 1200px) {
-    .products-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-/* Tablets y laptops (768px - 1199px) */
-@media (max-width: 1199px) {
-    .products-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
-    }
-    
-    .product-card {
-        height: var(--card-height-tablet);
-    }
-    
-    .slider-container {
-        height: 50vh;
-    }
-}
-
-/* Tablets pequeñas (600px - 767px) */
-@media (max-width: 767px) {
-    .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-    }
-
-    .slider-container {
-        height: 40vh;
-    }
-}
-
-/* Móviles (hasta 599px) */
-@media (max-width: 599px) {
-    .products-grid {
-        grid-template-columns: 1fr;
-        padding: 0.5rem;
-    }
-
-    .product-card {
-        height: var(--card-height-mobile);
-        max-width: 400px;
-    }
-
+/* Media queries optimizados */
+@media (max-width: 320px) {
     .product-info {
         transform: translateY(0);
-        height: 100%;
-        background: linear-gradient(
-            to top,
-            rgba(0,0,0,0.9) 0%,
-            rgba(0,0,0,0.7) 50%,
-            rgba(0,0,0,0.4) 100%
-        );
     }
-
+    
     .product-description,
-    .product-price,
-    .product-button {
+    .product-price {
         opacity: 1;
     }
+}
 
+@media (max-width: 768px) {
+    .product-card::before {
+        width: 80px;
+    }
+    
     .slider-container {
-        height: 30vh;
-    }
-
-    .slider-btn {
-        padding: 0.5rem;
-        font-size: 1rem;
-    }
-
-    .header {
-        padding: 0.5rem;
+        height: clamp(200px, 40vh, 300px);
     }
 }
 
-/* Ajustes para dispositivos muy pequeños */
-@media (max-width: 320px) {
-    :root {
-        --card-min-width: 240px;
-    }
-
-    .product-card {
-        height: 250px;
-    }
-
-    .product-info {
-        padding: 0.8rem;
-    }
-}
-
-/* Ajustes para modo paisaje en móviles */
-@media (max-height: 500px) and (orientation: landscape) {
-    .slider-container {
-        height: 70vh;
-    }
-
-    .product-card {
-        height: 250px;
-    }
-
+@media (min-width: 769px) and (max-width: 1024px) {
     .products-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     }
 }
 
-/* Soporte para pantallas de alta densidad */
+/* Optimizaciones para dispositivos de alta densidad */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .product-image {
         image-rendering: -webkit-optimize-contrast;
     }
 }
 
-/* Preferencias de reducción de movimiento */
-@media (prefers-reduced-motion: reduce) {
-    .product-card::before {
-        animation: none;
-    }
-    
-    .product-info,
-    .product-image,
-    .product-button {
-        transition: none;
+/* Soporte para modo oscuro */
+@media (prefers-color-scheme: dark) {
+    .product-info {
+        background: linear-gradient(
+            to top,
+            rgba(0,0,0,0.95) 0%,
+            rgba(0,0,0,0.8) 50%,
+            rgba(0,0,0,0.6) 100%
+        );
     }
 }
+
+/* Ajustes para orientación landscape en móviles */
+@media (max-height: 500px) and (orientation: landscape) {
+    .slider-container {
+        height: 80vh;
+    }
+    
+    .product-card {
+        height: 280px;
+    }
+} 
+/*========================================================
+                            Boton
+==========================================================*/
+.button {
+    --black-700: hsla(0 0% 12% / 1);
+    --border_radius: 9999px;
+    --transtion: 0.3s ease-in-out;
+    --offset: 2px;
+    left: 2em;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transform-origin: center;
+    padding: 0% 1rem;
+    background-color: transparent;
+    border: none;
+    border-radius: var(--border_radius);
+    transform: scale(calc(1 + (var(--active, 0) * 0.1)));
+    transition: transform var(--transtion);
+  }
+  
+  .button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+    width: 100%;
+    height: 100%;
+    background-color: var(--black-700);
+  
+    border-radius: var(--border_radius);
+    box-shadow: inset 0 0.5px hsl(0, 0%, 100%), inset 0 -1px 2px 0 hsl(0, 0%, 0%),
+      0px 4px 10px -4px hsla(0 0% 0% / calc(1 - var(--active, 0))),
+      0 0 0 calc(var(--active, 0) * 0.375rem) hsl(260 97% 50% / 0.75);
+  
+    transition: all var(--transtion);
+    z-index: 0;
+  }
+  
+  .button::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+    width: 100%;
+    height: 100%;
+    background-color: hsla(260 97% 61% / 0.75);
+    background-image: radial-gradient(
+        at 51% 89%,
+        hsla(266, 45%, 74%, 1) 0px,
+        transparent 50%
+      ),
+      radial-gradient(at 100% 100%, hsla(266, 36%, 60%, 1) 0px, transparent 50%),
+      radial-gradient(at 22% 91%, hsla(266, 36%, 60%, 1) 0px, transparent 50%);
+    background-position: top;
+  
+    opacity: var(--active, 0);
+    border-radius: var(--border_radius);
+    transition: opacity var(--transtion);
+    z-index: 2;
+  }
+  
+  .button:is(:hover, :focus-visible) {
+    --active: 1;
+  }
+  .button:active {
+    transform: scale(1);
+  }
+  
+  .button .dots_border {
+    --size_border: calc(100% + 2px);
+  
+    overflow: hidden;
+  
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+    width: var(--size_border);
+    height: var(--size_border);
+    background-color: transparent;
+  
+    border-radius: var(--border_radius);
+    z-index: -10;
+  }
+  
+  .button .dots_border::before {
+    content: "";
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: left;
+    transform: rotate(0deg);
+  
+    width: 100%;
+    height: 2rem;
+    background-color: white;
+  
+    mask: linear-gradient(transparent 0%, white 120%);
+    animation: rotate 2s linear infinite;
+  }
+  
+  @keyframes rotate {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .button .sparkle {
+    position: relative;
+    z-index: 10;
+  
+    width: 1.75rem;
+  }
+  
+  .button .sparkle .path {
+    fill: currentColor;
+    stroke: currentColor;
+  
+    transform-origin: center;
+  
+    color: hsl(0, 0%, 100%);
+  }
+  
+  .button:is(:hover, :focus) .sparkle .path {
+    animation: path 1.5s linear 0.5s infinite;
+  }
+  
+  .button .sparkle .path:nth-child(1) {
+    --scale_path_1: 1.2;
+  }
+  .button .sparkle .path:nth-child(2) {
+    --scale_path_2: 1.2;
+  }
+  .button .sparkle .path:nth-child(3) {
+    --scale_path_3: 1.2;
+  }
+  
+  @keyframes path {
+    0%,
+    34%,
+    71%,
+    100% {
+      transform: scale(1);
+    }
+    17% {
+      transform: scale(var(--scale_path_1, 1));
+    }
+    49% {
+      transform: scale(var(--scale_path_2, 1));
+    }
+    83% {
+      transform: scale(var(--scale_path_3, 1));
+    }
+  }
+  
+  .button .text_button {
+    position: relative;
+    z-index: 10;
+  
+    background-image: linear-gradient(
+      90deg,
+      rgb(6, 181, 239) 0%,
+      hsla(0 0% 100% / var(--active, 0)) 120%
+    );
+    background-clip: text;
+  
+    font-size: 2rem;
+    color: transparent;
+  }  
+  a {
+    text-decoration: none;
+  }

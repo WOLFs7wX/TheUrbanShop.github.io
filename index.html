@@ -4,26 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <title>UrbanShop</title>
 </head>
 <body>
     <!-- Header con navegación -->
     <header class="header">
-        <nav class="nav">
-          <!-- <button class="menu-btn">☰</button> -->
-            <div class="loader">
-            <span>U</span>
-            <span>R</span>
-            <span>B</span>
-            <span>A</span>
-            <span>N</span>
-            <span>S</span>
-            <span>H</span>
-            <span>O</span>
-            <span>P</span>
-            </div>
-        </nav>
-    </header>
+  <nav class="nav">
+    
+    <h1 class="logo">URBAN<span>SHOP</span></h1>
+
+    <input type="text" placeholder="Buscar productos..." class="search">
+
+  </nav>
+</header>
     <!-- Slider de imágenes -->
 <section class="slider-container">
     <div class="slider" id="slider">
@@ -50,11 +45,21 @@
     <button class="slider-btn next">❯</button>
     <div class="slider-dots"></div>
 </section>
+    <!-- filtro de productos -->
+<div class="filters">
+  <button onclick="filtrar('todos')">Todos</button>
+  <button onclick="filtrar('audifonos')">Audífonos</button>
+  <button onclick="filtrar('barberia')">Barbería</button>
+  <button onclick="filtrar('belleza')">Belleza</button>
+  <button onclick="filtrar('tecnologia')">Tecnología</button>
+  <button onclick="filtrar('hogar')">Hogar</button>
+</div>
     <!-- Sección de productos -->
     <main class="products-container">
         <div class="products-grid">
-            <!-- Producto audifonos -->
-            <article class="product-card">
+
+    <!-- Producto audifonos -->
+            <article class="product-card audifonos">
                 <img src="Imagen/I12.jpg" alt="Producto 1" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Audifonos I12</h2>
@@ -96,7 +101,7 @@
                 </div>
             </article>
             <!-- Producto audifonos -->
-            <article class="product-card">
+            <article class="product-card audifonos">
                 <img src="Imagen/M90.jpg" alt="Producto 2" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Audifonos M90</h2>
@@ -140,7 +145,7 @@
                 </div>
             </article>
             <!-- Producto audifonos -->
-            <article class="product-card">
+            <article class="product-card audifonos">
                 <img src="Imagen/M19.png" alt="Producto 3" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Audifonos M19</h2>
@@ -182,7 +187,7 @@
                 </div>
             </article>
             <!-- Producto audifonos -->
-            <article class="product-card">
+            <article class="product-card audifonos">
                 <img src="Imagen/M80.jpg" alt="Producto 4" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Audifonos M80</h2>
@@ -226,7 +231,7 @@
                 </div>
             </article>
             <!-- Producto maquinas -->
-            <article class="product-card">
+            <article class="product-card barberia">
                 <img src="Imagen/Buda.png" alt="Producto 5" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Maquina Buda</h2>
@@ -268,7 +273,7 @@
                 </div>
             </article>
             <!-- Producto maquinas -->
-            <article class="product-card">
+            <article class="product-card barberia">
                 <img src="Imagen/buda pantalla.png" alt="Producto 6" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Maquina Buda con pantalla</h2>
@@ -311,7 +316,7 @@
                 </div>
             </article>
             <!-- Producto maquinas -->
-            <article class="product-card">
+            <article class="product-card barberia">
                 <img src="Imagen/3 en 1.png" alt="Producto 7" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Maquina 3 en 1</h2>
@@ -354,7 +359,7 @@
                 </div>
             </article>
             <!-- Producto maquinas -->
-            <article class="product-card">
+            <article class="product-card barberia">
                 <img src="Imagen/sharp blade.jpg" alt="Producto 8" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Sharp Blade</h2>
@@ -397,7 +402,7 @@
                 </div>
             </article>
             <!-- Producto plancha -->
-            <article class="product-card">
+            <article class="product-card belleza">
                 <img src="Imagen/Remington - aguacate.png" alt="Producto 9" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Remington - aguacate</h2>
@@ -440,7 +445,7 @@
                 </div>
             </article>
             <!-- Producto plancha -->
-            <article class="product-card">
+            <article class="product-card belleza">
                 <img src="Imagen/Remington - Keratina.png" alt="Producto 10" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Remington - Keratina</h2>
@@ -483,7 +488,7 @@
                 </div>
             </article>
             <!-- Producto plancha -->
-            <article class="product-card">
+            <article class="product-card belleza">
                 <img src="Imagen/Remington.jpg" alt="Producto 11" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Remington</h2>
@@ -525,7 +530,7 @@
                 </div>
             </article>
             <!-- Producto plancha -->
-            <article class="product-card">
+            <article class="product-card belleza">
                 <img src="Imagen/Babyliss.png" alt="Producto 12" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Babyliss</h2>
@@ -568,7 +573,7 @@
                 </div>
             </article>
             <!-- Producto rizadora -->
-            <article class="product-card">
+            <article class="product-card belleza">
                 <img src="Imagen/Rizadora.png" alt="Producto 13" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Rizadora</h2>
@@ -610,7 +615,7 @@
                 </div>
             </article>
             <!-- Producto rizadora -->
-            <article class="product-card">
+            <article class="product-card belleza">
                 <img src="Imagen/Rizadora de 3.png" alt="Producto 14" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title"> Rizadora de 3</h2>
@@ -649,12 +654,12 @@
                             d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
                           ></path>
                         </svg>
-                      <span class="text_button">$75.000</span> </a>
+                      <span class="text_button">$50.000</span> </a>
                     <!-- <button class="product-button">Ver detalles</button> -->
                 </div>
             </article>
             <!-- Producto Rizadora -->
-            <article class="product-card">
+            <article class="product-card belleza">
                 <img src="Imagen/Cepillo secador.jpeg" alt="Producto 15" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Cepillo secador</h2>
@@ -696,7 +701,7 @@
                 </div>
             </article>
             <!-- Producto 6 -->
-            <article class="product-card">
+            <article class="product-card hogar">
                 <img src="Imagen/Panda.jpg" alt="Producto 16" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Humificador de Panda</h2>
@@ -738,7 +743,7 @@
                 </div>
             </article>
             <!-- Producto 7 -->
-            <article class="product-card">
+            <article class="product-card hogar">
                 <img src="Imagen/Humificador Esfera.png" alt="Producto 17" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Humificador de esfera</h2>
@@ -780,7 +785,7 @@
                 </div>
             </article>
             <!-- Producto 10 -->
-            <article class="product-card">
+            <article class="product-card hogar">
                 <img src="Imagen/Esencia.jpg" alt="Producto 20" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Esencias</h2>
@@ -822,7 +827,7 @@
                 </div>
             </article>
             <!-- Producto 8 -->
-            <article class="product-card">
+            <article class="product-card tecnologia">
                 <img src="Imagen/Proyector.jpg" alt="Producto 18" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Proyector astronauta</h2>
@@ -864,7 +869,7 @@
                 </div>
             </article>
             <!-- Producto 9 -->
-            <article class="product-card">
+            <article class="product-card hogar">
                 <img src="Imagen/Esfera de cristal.png" alt="Producto 19" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Lampara esfera de cristal</h2>
@@ -902,7 +907,7 @@
                             d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
                           ></path>
                         </svg>
-                      <span class="text_button">$30.000</span> </a>
+                      <span class="text_button">$20.000</span> </a>
                     <!-- <button class="product-button">Ver detalles</button> -->
                 </div>
             </article>
@@ -997,5 +1002,44 @@
         // Autoplay
         setInterval(nextSlide, 5000);
         </script>
+     <a href="https://wa.me/573009821575" class="whatsapp-btn" target="_blank">
+   <i class="fab fa-whatsapp"></i>
+</a>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init();
+</script>
+<!--buscador-->
+<script>
+document.querySelector(".search").addEventListener("keyup", function(){
+  let filtro = this.value.toLowerCase();
+  let productos = document.querySelectorAll(".product-card");
+
+  productos.forEach(p=>{
+    let texto = p.innerText.toLowerCase();
+
+    if(texto.includes(filtro)){
+      p.style.display="block";
+    }else{
+      p.style.display="none";
+    }
+  });
+});
+</script>
+<!--filtro-->
+<script>
+function filtrar(categoria){
+  let productos = document.querySelectorAll(".product-card");
+
+  productos.forEach(p=>{
+    if(categoria === "todos" || p.classList.contains(categoria)){
+      p.classList.remove("oculto");
+    } else {
+      p.classList.add("oculto");
+    }
+  });
+}
+</script>
+</script>
 </body>
 </html>

@@ -23,94 +23,141 @@
         /*=============================================
         =            Estilos Base            =
         =============================================*/
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: black;
-        }
+body{
+    background: linear-gradient(270deg,#0f0f0f,#1a1a1a,#0f0f0f);
+    background-size:600% 600%;
+    animation: fondoMove 10s ease infinite;
+    color:white;
+}
+
+@keyframes fondoMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
 
         /*=============================================
         =            Header            =
         =============================================*/
-        .header {
-            background-color: black;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+        .header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    backdrop-filter: blur(10px);
+    background: rgba(15,15,15,0.6);
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
 
-        .nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+.nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 30px;
+}
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
+.logo{
+    font-size:28px;
+    color:white;
+    font-weight:bold;
+    letter-spacing:2px;
+    animation: glow 2s infinite alternate;
+}
 
+.logo span{
+    color:#00f7ff;
+}
+
+@keyframes glow{
+    from{
+        text-shadow:0 0 5px #ff4800;
+    }
+    to{
+        text-shadow:0 0 20px #a600ff, 0 0 30px #a600ff;
+    }
+}
+
+/* MENU */
+.menu{
+    display:flex;
+    gap:20px;
+    list-style:none;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    position:relative;
+}
+
+.menu a::after{
+    content:"";
+    position:absolute;
+    width:0;
+    height:2px;
+    background:#00f7ff;
+    left:0;
+    bottom:-5px;
+    transition:0.3s;
+}
+
+.menu a:hover::after{
+    width:100%;
+}
+
+/* BUSCADOR */
+.search{
+    padding:8px 15px;
+    border-radius:20px;
+    border:none;
+    outline:none;
+    background:#1c1c1c;
+    color:white;
+    transition:0.3s;
+}
+
+.search:focus{
+    box-shadow:0 0 10px #00f7ff;
+} 
         /*=============================================
                     Logo
         ==============================================*/
-.loader {
-    -webkit-perspective: 700px;
-    perspective: 700px;
-    background: purple;
-    color: rgb(255, 48, 255);
-    padding: 0,7em 4em;
-    position: relative;
-    border-radius: 15px;
-  }
-  .loader>span {
-    font-size: 50px;
-    font-family: "franklin gothic medium",sans-serif;
-    display: inline-block;
-    animation: flip 2.6s infinite linear;
-    transform-origin: 0 70%;
-    transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
-  }
-  @keyframes flip {
-    35% {
-      transform: rotatex(360deg);
-    }
-  
-    100% {
-      transform: rotatex(360deg);
-    }
-  }
-  .loader>span:nth-child(even) {
-    color:  rgb(0, 183, 255);
-  }
-  .loader>span:nth-child(2) {
-    animation-delay: 0.3s;
-  }
-  .loader>span:nth-child(3) {
-    animation-delay: 0.6s;
-  }
-  .loader>span:nth-child(4) {
-    animation-delay: 0.9s;
-  }
-  .loader>span:nth-child(5) {
-    animation-delay: 1.2s;
-  }
-  .loader>span:nth-child(6) {
-    animation-delay: 1.5s
-  }
-  .loader>span:nth-child(7) {
-    animation-delay: 1.8s
-  }
+        .loader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: black;
+            padding: 10px 20px;
+            border-radius: 15px;
+            white-space: nowrap;
+        }
+        
+        .loader > span {
+            font-size: 50px;
+            font-family: "Franklin Gothic Medium", sans-serif;
+            display: inline-block;
+            color: #ff00ff;
+            text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff;
+            animation: neonGlow 1.5s infinite alternate;
+        }
+        
+        @keyframes neonGlow {
+            0% {
+                text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+            }
+            100% {
+                text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+            }
+        }
+        
+        .loader > span:nth-child(odd) {
+            animation-delay: 0.3s;
+        }
+        
         /*=============================================
         =            Slider            =
         =============================================*/
         .slider-container {
+    background-attachment: fixed;
     position: relative;
     height: 400px;
     overflow: hidden;
@@ -166,6 +213,22 @@
 .dot.active {
     background: white;
 }
+        /*=============================================
+        =            filtro productos                =
+        =============================================*/
+    .filters{
+    text-align:center;
+    margin:20px;
+}
+
+.filters button{
+    margin:5px;
+    padding:10px 15px;
+    border:none;
+    border-radius:8px;
+    background:#00f7ff;
+    cursor:pointer;
+}
 
         /*=============================================
         =            Contenedor Productos            =
@@ -180,6 +243,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 2rem;
+            padding: 20px;
         }
         
         /*=============================================
@@ -194,6 +258,22 @@
     overflow: hidden;
     border-radius: 20px;
     height: 400px;
+    border:1px solid rgba(0,255,255,0.1);
+    animation: float 4s ease-in-out infinite;
+    transition: all 0.4s ease;
+
+}
+.product-card.oculto{
+    opacity:0;
+    transform:scale(0.8);
+    pointer-events:none;
+    position:absolute;
+}
+.products-grid{
+    position:relative;
+}
+.product-card:hover{
+    box-shadow:0 0 20px #00f7ff;
 }
 .product-image {
     width: 95%;
@@ -328,7 +408,12 @@
         transform: rotate(360deg);
     }
 }
-
+/*animacion flotante*/
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-5px);}
+    100%{transform:translateY(0);}
+}
 .product-card:hover:before {
     background-image: linear-gradient(180deg, rgb(81, 255, 0), purple);
     animation: rotBGimg 3.5s linear infinite;
@@ -521,20 +606,6 @@
     --laptop: 1024px;
     --laptop-l: 1440px;
     --desktop: 1920px;
-}
-
-/* Optimización del loader/logo para todos los dispositivos */
-.loader {
-    padding: min(4vw, 2rem);
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.loader > span {
-    font-size: clamp(1.5rem, 3vw, 3rem);
-    line-height: 1.2;
 }
 
 /* Grid de productos adaptativo */
@@ -831,3 +902,25 @@
   a {
     text-decoration: none;
   }
+
+  /*========================================================
+                            boton whatsapp
+==========================================================*/
+  .whatsapp-btn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:white;
+    font-size:24px;
+    padding:15px;
+    border-radius:50%;
+    text-decoration:none;
+    box-shadow:0 0 15px rgba(0,0,0,0.3);
+    z-index:1000;
+    transition:0.3s;
+}
+
+.whatsapp-btn:hover{
+    transform:scale(1.1);
+}

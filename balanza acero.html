@@ -16,7 +16,7 @@
             box-sizing: border-box;
             font-family: Arial, sans-serif;
         }
-         /*=============================================
+        /*=============================================
         =            Header            =
         =============================================*/
         .header {
@@ -65,215 +65,215 @@
         /*=============================================
                     button home
         ==============================================*/
-button#space-btn {
-  width: 100%;
-  height: 100%;
-  justify-content: right;
-  align-items: initial;
-  position: relative;
-  overflow: hidden;
-  border: 0;
-  outline: 0;
-  border-radius: 11px;
-  background: #03001e;
-  background: linear-gradient(80deg, #ffcbf2, #ec38bc, #7303c0, #03001e);
-  cursor: pointer;
-}
-.btn-container {
-  width: 200px;
-  height: 60px;
-  position: relative;
-  overflow: visible;
-}
-.btn-container::after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 20px;
-  z-index: -1;
-  background: #03001e;
-  background: linear-gradient(80deg, #ffcbf2, #ec38bc, #7303c0, #03001e);
-  filter: blur(20px);
-  opacity: 0;
-}
-.btn-container:hover {
-  transform: scale(1.1);
-  transition: all 0.6s cubic-bezier(0.15, 0.83, 0.66, 1);
-}
-.btn-container:hover:after {
-  transition: all 0.6s cubic-bezier(0.15, 0.83, 0.66, 1);
-  opacity: 1;
-}
-.btn-container:active {
-  transform: scale(1);
-}
-.btn-container:active:after {
-  opacity: 0;
-}
-button span {
-  color: white;
-  font-weight: 700;
-  font-size: 16px;
-}
-button#space-btn div.star {
-  width: 1px;
-  height: 1px;
-  background-color: white;
-  border-radius: 50%;
-  animation: blink 2s cubic-bezier(0.15, 0.83, 0.66, 1) infinite;
-}
-button#space-btn div.shooting-star {
-  width: 80px;
-  height: 1px;
-  position: absolute;
-  background: linear-gradient(80deg, #ffffffff, #ffffff00);
-  border-radius: 50%;
-  transform: rotate(-40deg);
-  opacity: 0;
-}
-
-button#space-btn div.shooting-star-1 {
-  animation: fallingStar1 4s 6s cubic-bezier(0.15, 0.83, 0.66, 1) infinite;
-}
-
-button#space-btn div.shooting-star-2 {
-  animation: fallingStar2 2s 10s cubic-bezier(0.15, 0.83, 0.66, 1) infinite;
-}
-
-button#space-btn div.shooting-star-3 {
-  animation: fallingStar3 8s 20s cubic-bezier(0.15, 0.83, 0.66, 1) infinite;
-}
-
-button#space-btn div.shooting-star-4 {
-  animation: fallingStar4 4s 6s cubic-bezier(0.15, 0.83, 0.66, 1) infinite;
-}
-
-@keyframes blink {
-  0% {
-    box-shadow: 0 0 10px 0 white;
-  }
-
-  50% {
-    box-shadow: 0 0 10px 2px white;
-  }
-
-  100% {
-    box-shadow: 0 0 10px 0 white;
-  }
-}
-
-@keyframes fallingStar1 {
-  0% {
-    top: -10px;
-    left: 220px;
-    opacity: 1;
-  }
-
-  100% {
-    top: 200px;
-    left: -20px;
-    opacity: 1;
-  }
-}
-
-@keyframes fallingStar2 {
-  0% {
-    top: -10px;
-    left: 150px;
-    opacity: 1;
-  }
-
-  100% {
-    top: 200px;
-    left: -90px;
-    opacity: 1;
-  }
-}
-
-@keyframes fallingStar3 {
-  0% {
-    top: -10px;
-    left: 80px;
-    opacity: 1;
-  }
-
-  100% {
-    top: 200px;
-    left: -160px;
-    opacity: 1;
-  }
-}
-
-@keyframes fallingStar4 {
-  0% {
-    top: -10px;
-    left: 0px;
-    opacity: 1;
-  }
-
-  100% {
-    top: 200px;
-    left: -240px;
-    opacity: 1;
-  }
-}
-     /*=============================================
-                          Logo
-     ==============================================*/
-.loader {
-    -webkit-perspective: 700px;
-    perspective: 700px;
-    background: purple;
-    color: rgb(255, 48, 255);
-    padding: 0,7em 4em;
+    button#space-btn {
+    width: 100%;
+    height: 100%;
+    justify-content: right;
+    align-items: initial;
     position: relative;
-    border-radius: 15px;
-    justify-content: center;
-    justify-items: center;
-  }
-  .loader>span {
-    font-size: 50px;
     overflow: hidden;
-    font-family: "franklin gothic medium",sans-serif;
-    display: inline-block;
-    animation: flip 2.6s infinite linear;
-    transform-origin: 0 50%;
-    transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
-    position: relative;   
-    justify-content: center;
-  }  
-  @keyframes flip {
-    35% {
-      transform: rotatex(360deg);
+    border: 0;
+    outline: 0;
+    border-radius: 11px;
+    background: #03001e;
+    background: linear-gradient(80deg, #ffcbf2, #ec38bc, #7303c0, #03001e);
+    cursor: pointer;
     }
+    .btn-container {
+    width: 200px;
+    height: 60px;
+    position: relative;
+    overflow: visible;
+    }
+    .btn-container::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 20px;
+    z-index: -1;
+    background: #03001e;
+    background: linear-gradient(80deg, #ffcbf2, #ec38bc, #7303c0, #03001e);
+    filter: blur(20px);
+    opacity: 0;
+    }
+    .btn-container:hover {
+    transform: scale(1.1);
+    transition: all 0.6s cubic-bezier(0.15, 0.83, 0.66, 1);
+    }
+    .btn-container:hover:after {
+    transition: all 0.6s cubic-bezier(0.15, 0.83, 0.66, 1);
+    opacity: 1;
+    }
+    .btn-container:active {
+    transform: scale(1);
+    }
+    .btn-container:active:after {
+    opacity: 0;
+    }
+    button span {
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    }
+    button#space-btn div.star {
+    width: 1px;
+    height: 1px;
+    background-color: white;
+    border-radius: 50%;
+    animation: blink 2s cubic-bezier(0.15, 0.83, 0.66, 1) infinite;
+    }
+    button#space-btn div.shooting-star {
+    width: 80px;
+    height: 1px;
+    position: absolute;
+    background: linear-gradient(80deg, #ffffffff, #ffffff00);
+    border-radius: 50%;
+    transform: rotate(-40deg);
+    opacity: 0;
+    }
+
+    button#space-btn div.shooting-star-1 {
+    animation: fallingStar1 4s 6s cubic-bezier(0.15, 0.83, 0.66, 1) infinite;
+    }
+
+    button#space-btn div.shooting-star-2 {
+    animation: fallingStar2 2s 10s cubic-bezier(0.15, 0.83, 0.66, 1) infinite;
+    }
+
+    button#space-btn div.shooting-star-3 {
+    animation: fallingStar3 8s 20s cubic-bezier(0.15, 0.83, 0.66, 1) infinite;
+    }
+
+    button#space-btn div.shooting-star-4 {
+    animation: fallingStar4 4s 6s cubic-bezier(0.15, 0.83, 0.66, 1) infinite;
+    }
+
+    @keyframes blink {
+    0% {
+        box-shadow: 0 0 10px 0 white;
+    }
+
+    50% {
+        box-shadow: 0 0 10px 2px white;
+    }
+
     100% {
-      transform: rotatex(360deg);
+        box-shadow: 0 0 10px 0 white;
     }
-  }
-  .loader>span:nth-child(even) {
-    color:  rgb(0, 183, 255);
-  }
-  .loader>span:nth-child(2) {
-    animation-delay: 0.3s;
-  }
-  .loader>span:nth-child(3) {
-    animation-delay: 0.6s;
-  }
-  .loader>span:nth-child(4) {
-    animation-delay: 0.9s;
-  }
-  .loader>span:nth-child(5) {
-    animation-delay: 1.2s;
-  }
-  .loader>span:nth-child(6) {
-    animation-delay: 1.5s
-  }
-  .loader>span:nth-child(7) {
-    animation-delay: 1.8s
-  }
+    }
+
+    @keyframes fallingStar1 {
+    0% {
+        top: -10px;
+        left: 220px;
+        opacity: 1;
+    }
+
+    100% {
+        top: 200px;
+        left: -20px;
+        opacity: 1;
+    }
+    }
+
+    @keyframes fallingStar2 {
+    0% {
+        top: -10px;
+        left: 150px;
+        opacity: 1;
+    }
+
+    100% {
+        top: 200px;
+        left: -90px;
+        opacity: 1;
+    }
+    }
+
+    @keyframes fallingStar3 {
+    0% {
+        top: -10px;
+        left: 80px;
+        opacity: 1;
+    }
+
+    100% {
+        top: 200px;
+        left: -160px;
+        opacity: 1;
+    }
+    }
+
+    @keyframes fallingStar4 {
+    0% {
+        top: -10px;
+        left: 0px;
+        opacity: 1;
+    }
+
+    100% {
+        top: 200px;
+        left: -240px;
+        opacity: 1;
+    }
+    }
+        /*=============================================
+                            Logo
+        ==============================================*/
+    .loader {
+        -webkit-perspective: 700px;
+        perspective: 700px;
+        background: purple;
+        color: rgb(255, 48, 255);
+        padding: 0,7em 4em;
+        position: relative;
+        border-radius: 15px;
+        justify-content: center;
+        justify-items: center;
+    }
+    .loader>span {
+        font-size: 50px;
+        overflow: hidden;
+        font-family: "franklin gothic medium",sans-serif;
+        display: inline-block;
+        animation: flip 2.6s infinite linear;
+        transform-origin: 0 50%;
+        transform-style: preserve-3d;
+        -webkit-transform-style: preserve-3d;
+        position: relative;   
+        justify-content: center;
+    }  
+    @keyframes flip {
+        35% {
+        transform: rotatex(360deg);
+        }
+        100% {
+        transform: rotatex(360deg);
+        }
+    }
+    .loader>span:nth-child(even) {
+        color:  rgb(0, 183, 255);
+    }
+    .loader>span:nth-child(2) {
+        animation-delay: 0.3s;
+    }
+    .loader>span:nth-child(3) {
+        animation-delay: 0.6s;
+    }
+    .loader>span:nth-child(4) {
+        animation-delay: 0.9s;
+    }
+    .loader>span:nth-child(5) {
+        animation-delay: 1.2s;
+    }
+    .loader>span:nth-child(6) {
+        animation-delay: 1.5s
+    }
+    .loader>span:nth-child(7) {
+        animation-delay: 1.8s
+    }
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -743,7 +743,7 @@ button#space-btn div.shooting-star-4 {
           <!--  -->
           <div class="product-slider">
             <div class="product-slide">
-                <a href="buda.html"><img src="Imagen/Buda.png" alt="Producto 1"></a>
+                <a href="balanza plastico.html"><img src="Imagen/balanza plastico.png" alt="Producto 1"></a>
             </div>
             <div class="product-slide">
                 <a href="humificador 20.html"><img src="Imagen/Humificador Esfera.png" alt="Producto 2"></a>
@@ -758,7 +758,7 @@ button#space-btn div.shooting-star-4 {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script>
       //slider
-      $(document).ready(function(){
+    $(document).ready(function(){
             $('.product-slider').slick({
                 slidesToShow: 3,
                 slidesToScroll: 1,
@@ -775,41 +775,31 @@ button#space-btn div.shooting-star-4 {
                 ]
             });
         });
-      </script>   
+    </script>   
     <div class="container">
         <div class="product-grid">
             <!-- Galería de imágenes -->
             <div class="gallery">
-                <img src="Imagen/Esfera de cristal.png"  alt="Producto" class="main-image">
+                <img src="Imagen/balanza acero.png"  alt="Producto" class="main-image">
                 <div class="thumbnails">
                     <div class="thumbnail">
-                        <img src="Imagen/esfera 1.png" alt="Miniatura 1">
+                        <img src="Imagen/balanza acero 1.png" alt="Miniatura 1">
                     </div>
                     <div class="thumbnail">
-                        <img src="Imagen/esfera 2.png" alt="Miniatura 2">
+                        <img src="Imagen/balanza acero 2.png" alt="Miniatura 2">
                     </div>
                     <div class="thumbnail">
-                        <img src="Imagen/esfera 3.png" alt="Miniatura 3">
-                    </div>
-                    <div class="thumbnail">
-                        <img src="Imagen/esfera 4.png" alt="Miniatura 4">
-                    </div>
-                    <div class="thumbnail">
-                        <img src="Imagen/Esfera 5.jpg" alt="Miniatura 5">
-                    </div>
-                    <div class="thumbnail">
-                        <img src="Imagen/esfera 6.png" alt="Miniatura 6">
+                        <img src="Imagen/balanza acero 3.png" alt="Miniatura 3">
                     </div>
                 </div>
             </div>
             <!-- Información del producto -->
             <div class="product-info">
-                <h1>Lampara - Esfera</h1>
-                <div class="price">$25.000</div>
+                <h1>Balanza Gramera Digital de Cocina en acero hasta 10 Kg.</h1>
+                <div class="price">$30.000</div>
                 <div>
                     <p class="product-description">
-                    Ilumina tu espacio con estilo y magia con nuestra lámpara LED 3D de cristal y diseño de luna. Crea un ambiente cálido y relajante con su luz suave y degradada en múltiples colores. Perfecta como luz nocturna o decoración, su diseño compacto combina una base de madera de haya duradera y una esfera de cristal grabada con precisión. Fácil de usar, con conexión USB y bajo consumo de energía. Dale un toque artístico y elegante a tu hogar u oficina con esta pieza única. ¡Haz que tus noches brillen como nunca antes!</p>                    </p>
-                    </p>
+                    Obtén mediciones precisas para tus recetas, dietas, repostería y proyectos de cocina con la Balanza Gramera Digital F37. Su diseño compacto y moderno permite pesar ingredientes de forma rápida y sencilla, convirtiéndose en una herramienta indispensable para cualquier hogar. Gracias a su pantalla digital de fácil lectura y su alta precisión, podrás controlar las cantidades exactas de alimentos, especias, harinas, frutas y otros ingredientes. Ideal para cocina, repostería, control de porciones y uso doméstico.</p>
                 </div>
             </div>
         </div>
@@ -832,16 +822,32 @@ button#space-btn div.shooting-star-4 {
                         <div class="spec-value">Generica</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-label">Modelo</div>
-                        <div class="spec-value">Esfera de cristal</div>
+                        <div class="spec-label">Tipo</div>
+                        <div class="spec-value">Balanza digital de cocina</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Capacidad máxima</div>
+                        <div class="spec-value">10 Kg</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Unidad de medida</div>
+                        <div class="spec-value">g, oz, lb y ml</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Pantalla</div>
+                        <div class="spec-value">LCD digital</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Apagado automático</div>
+                        <div class="spec-value">Sí</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Material</div>
+                        <div class="spec-value">Acero inoxidable</div>
                     </div>
                     <div class="spec-item">
                         <div class="spec-label">Color</div>
-                        <div class="spec-value">Blanco</div>
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-label">Tamaño</div>
-                        <div class="spec-value">10 cm alto x 7 largo</div>
+                        <div class="spec-value">Plateado</div>
                     </div>
                 </div>
             </div>
@@ -850,11 +856,13 @@ button#space-btn div.shooting-star-4 {
                 <div class="description">
                     <p>Características principales:</p>
                     <ul>
-                        <li>Variedad de diseños: Disponible en diferentes diseños para adaptarse a diferentes estilos y preferencias.</li>
-                        <li>Material: cristal K9 de alta calidad.</li>
-                        <li>Tamaño del cristal: esfera de 6 cm de diámetro.</li>
-                        <li>Tamaño de la base: 7 cm de diámetro y 2 cm de alto.</li>
-                        <li>Estilo y funcionalidad combinados: El uso de vidrio y madera crea una mezcla perfecta de estética y practicidad.</li>
+                        <li>Medición precisa y rápida.</li>
+                        <li>Pantalla LCD de fácil lectura.</li>
+                        <li>Diseño compacto y ligero.</li>
+                        <li>Función de tara para mayor comodidad.</li>
+                        <li>Fácil de almacenar</li>
+                        <li>Ideal para cocina y repostería.</li>
+                        <li>Operación sencilla con botones táctiles.</li>
                     </ul>
                 </div>
             </div>
@@ -866,7 +874,7 @@ button#space-btn div.shooting-star-4 {
                         <div class="overall-rating">
                             <h2>Opiniones del producto</h2>
                             <div class="total-ratings">Calificacion</div>
-                            <div class="rating-big">4.7</div>
+                            <div class="rating-big">4.8</div>
                             <div class="stars">★★★★☆</div>
                         </div>
                         <!-- Barras de calificación -->
@@ -874,31 +882,31 @@ button#space-btn div.shooting-star-4 {
                             <div class="rating-bar-item">
                                 <span>5</span>
                                 <div class="bar-container">
-                                    <div class="bar" style="width: 40%"></div>
+                                    <div class="bar" style="width: 75%"></div>
                                 </div>
                             </div>
                             <div class="rating-bar-item">
                                 <span>4</span>
                                 <div class="bar-container">
-                                    <div class="bar" style="width: 30%"></div>
+                                    <div class="bar" style="width: 18%"></div>
                                 </div>
                             </div>
                             <div class="rating-bar-item">
                                 <span>3</span>
                                 <div class="bar-container">
-                                    <div class="bar" style="width: 15%"></div>
+                                    <div class="bar" style="width: 5%"></div>
                                 </div>
                             </div>
                             <div class="rating-bar-item">
                                 <span>2</span>
                                 <div class="bar-container">
-                                    <div class="bar" style="width: 7%"></div>
+                                    <div class="bar" style="width: 1%"></div>
                                 </div>
                             </div>
                             <div class="rating-bar-item">
                                 <span>1</span>
                                 <div class="bar-container">
-                                    <div class="bar" style="width: 3%"></div>
+                                    <div class="bar" style="width: 1%"></div>
                                 </div>
                             </div>
                         </div>
@@ -906,39 +914,40 @@ button#space-btn div.shooting-star-4 {
                         <div class="feature-ratings">
                             <h3>Calificación de características</h3>
                             <div class="feature-rating-item">
-                                <span>Duración</span>
+                                <span>Precisión</span>
                                 <div class="feature-stars">
-                                    <div class="stars">★★★★☆</div>
+                                    <div class="stars">★★★★★</div>
                                 </div>
                             </div>
                             <div class="feature-rating-item">
-                                <span>Comodidad</span>
+                                <span>Facilidad de uso</span>
                                 <div class="feature-stars">
-                                    <div class="stars">★★★★☆</div>
+                                    <div class="stars">★★★★★</div>
                                 </div>
                             </div>
                             <div class="feature-rating-item">
-                                <span>Relación precio-calidad</span>
+                                <span>Diseño</span>
                                 <div class="feature-stars">
-                                    <div class="stars">★★★★☆</div>
+                                    <div class="stars">★★★★★</div>
                                 </div>
                             </div>
                             <div class="feature-rating-item">
-                                <span>Calidad de los materiales</span>
+                                <span>Relación calidad-precio</span>
                                 <div class="feature-stars">
-                                    <div class="stars">★★★★☆</div>
+                                    <div class="stars">★★★★★</div>
                                 </div>
                             </div>
                             <div class="feature-rating-item">
-                                <span>Calidad producto</span>
+                                <span>Calidad de materiales</span>
                                 <div class="feature-stars">
-                                    <div class="stars">★★★☆☆</div>
+                                    <div class="stars">★★★★☆</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
 <style>
 /* Estilos adicionales para las reseñas */
 .reviews-container {

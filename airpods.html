@@ -549,6 +549,107 @@ button#space-btn div.shooting-star-4 {
         height: 25px;
     }
 }
+/*Configuracion reponsivo*/
+.header {
+    background-color: black;
+    padding: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+/* Ajustes del botón HOME */
+.btn-container {
+    width: 120px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+#space-btn {
+    height: 40px;
+    font-size: 14px;
+}
+
+/* Ajustes del logo */
+.logo {
+    width: 80px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Ajustes del slider */
+.product-slider {
+    width: auto;
+    max-width: 200px;
+    flex-grow: 1;
+}
+
+.product-slide img {
+    max-width: 60px;
+    height: 40px;
+    object-fit: cover;
+}
+
+/* Media queries para dispositivos móviles */
+@media (max-width: 768px) {
+    .header {
+        padding: 0.25rem;
+    }
+
+    .nav-container {
+        gap: 0.5rem;
+    }
+
+    .btn-container {
+        width: 80px;
+        height: 30px;
+    }
+
+    #space-btn {
+        height: 30px;
+        font-size: 12px;
+    }
+    .logo {
+        width: 60px;
+        height: 30px;
+    }
+    .product-slider {
+        max-width: 150px;
+    }
+    .product-slide img {
+        max-width: 40px;
+        height: 30px;
+    }
+}
+@media (max-width: 480px) {
+    .product-slider {
+        max-width: 120px;
+    }
+    .product-slide img {
+        max-width: 30px;
+        height: 25px;
+    }
+}
     </style>
 </head>
 <body class="product-detail-page">
@@ -743,13 +844,13 @@ button#space-btn div.shooting-star-4 {
           <!--  -->
           <div class="product-slider">
             <div class="product-slide">
-                <a href="buda.html"><img src="Imagen/Buda.png" alt="Producto 1"></a>
+                <a href="I12.html"><img src="Imagen/I12.jpg" alt="Producto 1"></a>
             </div>
             <div class="product-slide">
-                <a href="humificador 20.html"><img src="Imagen/Humificador Esfera.png" alt="Producto 2"></a>
+                <a href="buda.html"><img src="Imagen/Buda.png" alt="Producto 2"></a>
             </div>
             <div class="product-slide">
-                <a href="m80.html"><img src="Imagen/m80 1.png" alt="Producto 3"></a>
+                <a href="3 in 1.html"><img src="Imagen/3 en 1.png" alt="Producto 3"></a>
             </div>
         </div>
         </nav>
@@ -780,30 +881,26 @@ button#space-btn div.shooting-star-4 {
         <div class="product-grid">
             <!-- Galería de imágenes -->
             <div class="gallery">
-                <img src="Imagen/proyector 2 en 1.png"  alt="Producto" class="main-image">
+                <img src="Imagen/Audifonos Airpods.png " alt="Producto" class="main-image">
                 <div class="thumbnails">
                     <div class="thumbnail">
-                        <img src="Imagen/proyector 2 en 1 1.png" alt="Miniatura 1">
+                        <img src="Imagen/Audifonos Airpods 1.png" alt="Miniatura 1">
                     </div>
                     <div class="thumbnail">
-                        <img src="Imagen/proyector 2 en 1 2.png" alt="Miniatura 2">
+                        <img src="Imagen/Audifonos Airpods 2.png" alt="Miniatura 2">
                     </div>
                     <div class="thumbnail">
-                        <img src="Imagen/proyector 2 en 1 3.png" alt="Miniatura 3">
-                    </div>
-                    <div class="thumbnail">
-                        <img src="Imagen/proyector 2 en 1 4.png" alt="Miniatura 4">
+                        <img src="Imagen/Audifonos Airpods 3.png" alt="Miniatura 3">
                     </div>
                 </div>
             </div>
             <!-- Información del producto -->
             <div class="product-info">
-                <h1>Proyector Portátil Smart Game 2 en 1 con Juegos y Aplicaciones.</h1>
-                <div class="price">$350.000</div>
+                <h1>Audifonos Airpods</h1>
+                <div class="price">$60.000</div>
                 <div>
                     <p class="product-description">
-                    Transforma cualquier espacio en tu propio centro de entretenimiento con el Proyector Portátil Smart Game 2 en 1. Disfruta de películas, series, videos y juegos en una pantalla de gran tamaño gracias a su sistema de proyección compacto y fácil de transportar. Este dispositivo combina funciones multimedia inteligentes con una experiencia de juego inalámbrica mediante sus controles incluidos. Su diseño moderno permite instalarlo fácilmente en habitaciones, salas, oficinas o espacios recreativos. Ideal para disfrutar contenido en familia, con amigos o para entretenimiento personal.</p>                    </p>
-                    </p>
+                    Disfruta una experiencia de audio moderna con los Auriculares Bluetooth 5.3 con Pantalla Touch Inteligente. Su innovador estuche con pantalla táctil permite controlar funciones como el volumen, la reproducción de música y otros ajustes sin necesidad de sacar el teléfono. Gracias a su conectividad Bluetooth 5.3, ofrecen una conexión rápida y estable con dispositivos Android, iPhone, tablets y computadores. Su diseño ergonómico, la reducción de ruido y la batería de larga duración los convierten en una excelente opción para trabajar, estudiar, entrenar o disfrutar de tu música favorita.</p>     
                 </div>
             </div>
         </div>
@@ -827,19 +924,19 @@ button#space-btn div.shooting-star-4 {
                     </div>
                     <div class="spec-item">
                         <div class="spec-label">Modelo</div>
-                        <div class="spec-value">Game 2 in 1</div>
+                        <div class="spec-value">Pantalla Touch</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-label">Color</div>
-                        <div class="spec-value">blanco</div>
+                        <div class="spec-label">Tipo</div>
+                        <div class="spec-value">Auriculares TWS inalámbricos</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-label">conectividad</div>
-                        <div class="spec-value">wifi / inalámbrica</div>
+                        <div class="spec-label">Conectividad</div>
+                        <div class="spec-value">Bluetooth 5.3</div>
                     </div>
-                        <div class="spec-item">
-                        <div class="spec-label">sistema multimedia</div>
-                        <div class="spec-value">Compatible con aplicaciones de entretenimiento</div>
+                    <div class="spec-item">
+                        <div class="spec-label">Compatibilidad</div>
+                        <div class="spec-value">Android, iOS, Windows y otros dispositivos Bluetooth</div>
                     </div>
                 </div>
             </div>
@@ -848,16 +945,16 @@ button#space-btn div.shooting-star-4 {
                 <div class="description">
                     <p>Características principales:</p>
                     <ul>
-                        <li>Proyector portátil de fácil transporte.</li>
-                        <li>Incluye controles inalámbricos para juegos.</li>
-                        <li>Compatible con aplicaciones multimedia.</li>
-                        <li>Control remoto incluido.</li>
-                        <li>Diseño compacto y moderno.</li>
-                        <li>Fácil instalación y configuración.</li>
-                        <li>Ideal para cine en casa y videojuegos.</li>
-                        <li>Proyección en pantalla grande.</li>
-                        <li>Conectividad inalámbrica.</li>
-                        <li>Base ajustable para mejor orientación.</li>
+                        <li>Pantalla táctil integrada en el estuche.</li>
+                        <li>Tecnología Bluetooth 5.3.</li>
+                        <li>Conexión rápida y estable.</li>
+                        <li>Reducción de ruido para llamadas y música.</li>
+                        <li>Hasta 24 horas de reproducción con el estuche de carga.</li>
+                        <li>Dispositivo power bank con tres tipos de cables incorporados Micro-B, tipo C y Lightning</li>
+                        <li>Entrada de carga:5V</li>
+                        <li>Controles táctiles inteligentes: gestione sin esfuerzo su audio y llamadas con controles táctiles intuitivos. Reproducir, pausar, saltar pistas, responder llamadas o activar su asistente de voz.</li>
+                        <li>Control táctil para música y llamadas.</li>
+                        <li>Teléfonos y equipos compatibles: Todos los dispositivos Android, IOS, Microsoft, etc.</li>
                     </ul>
                 </div>
             </div>
@@ -869,7 +966,7 @@ button#space-btn div.shooting-star-4 {
                         <div class="overall-rating">
                             <h2>Opiniones del producto</h2>
                             <div class="total-ratings">Calificacion</div>
-                            <div class="rating-big">4.8</div>
+                            <div class="rating-big">4.9</div>
                             <div class="stars">★★★★☆</div>
                         </div>
                         <!-- Barras de calificación -->
@@ -877,25 +974,25 @@ button#space-btn div.shooting-star-4 {
                             <div class="rating-bar-item">
                                 <span>5</span>
                                 <div class="bar-container">
-                                    <div class="bar" style="width: 70%"></div>
+                                    <div class="bar" style="width: 81%"></div>
                                 </div>
                             </div>
                             <div class="rating-bar-item">
                                 <span>4</span>
                                 <div class="bar-container">
-                                    <div class="bar" style="width: 30%"></div>
+                                    <div class="bar" style="width: 14%"></div>
                                 </div>
                             </div>
                             <div class="rating-bar-item">
                                 <span>3</span>
                                 <div class="bar-container">
-                                    <div class="bar" style="width: 7%"></div>
+                                    <div class="bar" style="width: 3%"></div>
                                 </div>
                             </div>
                             <div class="rating-bar-item">
                                 <span>2</span>
                                 <div class="bar-container">
-                                    <div class="bar" style="width: 2%"></div>
+                                    <div class="bar" style="width: 1%"></div>
                                 </div>
                             </div>
                             <div class="rating-bar-item">
@@ -909,15 +1006,15 @@ button#space-btn div.shooting-star-4 {
                         <div class="feature-ratings">
                             <h3>Calificación de características</h3>
                             <div class="feature-rating-item">
-                                <span>Calidad de imagen</span>
+                                <span>Duración de la batería</span>
                                 <div class="feature-stars">
                                     <div class="stars">★★★★★</div>
                                 </div>
                             </div>
                             <div class="feature-rating-item">
-                                <span>Experiencia de juego</span>
+                                <span>Calidad de sonido</span>
                                 <div class="feature-stars">
-                                    <div class="stars">★★★★★</div>
+                                    <div class="stars">★★★★☆</div>
                                 </div>
                             </div>
                             <div class="feature-rating-item">
@@ -933,9 +1030,9 @@ button#space-btn div.shooting-star-4 {
                                 </div>
                             </div>
                             <div class="feature-rating-item">
-                                <span>facilidad de uso</span>
+                                <span>Comodidad</span>
                                 <div class="feature-stars">
-                                    <div class="stars">★★★★★</div>
+                                    <div class="stars">★★★★☆</div>
                                 </div>
                             </div>
                         </div>
@@ -1045,9 +1142,8 @@ h3 {
         grid-template-columns: 1fr;
     }
 }
-
 </style>
- <script>
+    <script>
         // Script para los tabs
         document.querySelectorAll('.tab-btn').forEach(button => {
             button.addEventListener('click', () => {
@@ -1057,6 +1153,7 @@ h3 {
                 });
                 // Agregar clase active al botón clickeado
                 button.classList.add('active');
+
                 // Ocultar todos los paneles
                 document.querySelectorAll('.tab-panel').forEach(panel => {
                     panel.classList.remove('active');
@@ -1066,6 +1163,7 @@ h3 {
                 document.getElementById(tabId).classList.add('active');
             });
         });
+
         // Script para cambiar la imagen principal
         document.querySelectorAll('.thumbnail').forEach(thumbnail => {
             thumbnail.addEventListener('click', () => {

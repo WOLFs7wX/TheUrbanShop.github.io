@@ -11,47 +11,32 @@
 <body>
   <!--fondo tecnologico-->
   <div class="background-grid"></div>
+  <!-- Definición única del ícono "sparkle" reusado en todos los botones de producto -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="sparkle-icon" viewBox="0 0 24 24" fill="none">
+      <path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"></path>
+      <path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"></path>
+      <path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"></path>
+    </symbol>
+  </svg>
     <!-- Header con navegación -->
-    <header class="header">
-  <nav class="nav">    
-    <h1 class="logo">URBAN<span>SHOP</span></h1>
-    <input type="text" placeholder="Buscar productos..." class="search">
-  </nav>
-</header>
-    <!-- Slider de imágenes -->
-<section class="slider-container">
-    <div class="slider" id="slider">
-        <div class="slide">
-            <img src="Imagen/I12.jpg" alt="Slide 1">
-        </div>
-        <div class="slide">
-            <img src="Imagen/Buda.png" alt="Slide 2">
-        </div>
-        <div class="slide">
-            <img src="Imagen/Esfera de cristal.png" alt="Slide 3">
-        </div>
-        <div class="slide">
-            <img src="Imagen/Humificador Esfera.png" alt="Slide 1">
-        </div>
-        <div class="slide">
-            <img src="Imagen/Remington - Keratina.png" alt="Slide 2">
-        </div>
-        <div class="slide">
-            <img src="Imagen/Proyector.jpg" alt="Slide 3">
-        </div>
+  <header class="hero-header">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+
+    <div class="hero-content">
+        <h1 class="logo-text">URBAN<span>SHOP</span></h1>
+        <input class="search" type="text" placeholder="Buscar productos...">
     </div>
-    <button class="slider-btn prev">❮</button>
-    <button class="slider-btn next">❯</button>
-    <div class="slider-dots"></div>
-</section>
+</header>
     <!-- filtro de productos -->
 <div class="filters">
-  <button onclick="filtrar('todos')">Todos</button>
-  <button onclick="filtrar('audifonos')">Audífonos</button>
-  <button onclick="filtrar('barberia')">Barbería</button>
-  <button onclick="filtrar('belleza')">Belleza</button>
-  <button onclick="filtrar('tecnologia')">Tecnología</button>
-  <button onclick="filtrar('hogar')">Hogar</button>
+  <button onclick="filtrar('todos', this)" class="active">Todos</button>
+  <button onclick="filtrar('audifonos', this)">Audífonos</button>
+  <button onclick="filtrar('barberia', this)">Barbería</button>
+  <button onclick="filtrar('belleza', this)">Belleza</button>
+  <button onclick="filtrar('tecnologia', this)">Tecnología</button>
+  <button onclick="filtrar('hogar', this)">Hogar</button>
 </div>
     <!-- Sección de productos -->
     <main class="products-container">
@@ -62,22 +47,11 @@
                 <img src="Imagen/I12.jpg" alt="Producto 1" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Audifonos I12</h2>
-            <a href="I12.html" title="Ver detalles" aria-label="Ver detalles"><button class="button">
-            <div class="dots_border"></div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-              ><path
-                  class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                ></path>
-                <path
-                  class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                ></path>
-                <path
-                  class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                ></path>
-              </svg>
-            <span class="text_button">$20.000</span></a>
-            </button> 
+            <a href="i12.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$20.000</span>
+            </a> 
             </div>
             </article>
             <!-- Producto audifonos -->
@@ -86,22 +60,11 @@
                 <div class="product-info">
                     <h2 class="product-title">Audifonos M90</h2>
                     <p class="product-description"></p>
-                    <a href="m90.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">$40.000</span> </a>
-                    </button>
+                    <a href="m90.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$40.000</span>
+            </a>
                 </div>
             </article>
             <!-- Producto audifonos -->
@@ -109,47 +72,25 @@
                 <img src="Imagen/M19.png" alt="Producto 3" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Audifonos M19</h2>
-                    <a href="m19.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">$40.000</span> </a>
-                <!-- <button class="product-button">Ver detalles</button> -->
+                    <a href="m19.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$40.000</span>
+            </a>
                 </div>
             </article>
             <!-- Producto audifonos -->
             <article class="product-card audifonos">
-                <img src="Imagen/M80.jpg" alt="Producto 4" class="product-image">
+                <img src="Imagen/Audifonos Airpods.png" alt="Producto 4" class="product-image">
                 <div class="product-info">
-                    <h2 class="product-title">Audifonos M80</h2>
+                    <h2 class="product-title">Audifonos Airpods</h2>
                     <p class="product-description">
-                      <!-- Este dispositivo multifuncional combina audífonos Bluetooth 5.3 con un power bank de 2000 mAh, ofreciendo conectividad confiable y compatibilidad con Tipo C, Micro-USB y Lightning. Resistente al agua y diseñado para actividades al aire libre, cuenta con una pantalla LED y entrada de carga tipo C. Disponible en elegante color negro, incluye audífonos, cable USB, almohadillas y manual, siendo perfecto para un uso práctico y versátil en el día a día. </p> -->
-                      <a href="m80.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">$50.000</span> </a>
-                <!--  <button class="product-button">Ver detalles</button> -->
+                      <!-- Este dispositivo multifuncional combina audífonos Bluetooth 5.3 con un power bank de 2000 mAh, ofreciendo conectividad confiable y compatibilidad con Tipo C, Micro-USB y Lightning. Resistente al agua y diseñado para actividades al aire libre, cuenta con una pantalla LED y entrada de carga tipo C. Disponible en elegante color negro, incluye audífonos, cable USB, almohadillas y manual, siendo perfecto para un uso práctico y versátil en el día a día. </p> --></p>
+                      <a href="airpods.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$60.000</span>
+            </a>
                 </div>
             </article>
             <!-- Producto maquinas -->
@@ -157,22 +98,11 @@
                 <img src="Imagen/Buda.png" alt="Producto 5" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Maquina Buda</h2>
-                    <a href="buda.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">$20.000</span> </a>
-                <!-- <button class="product-button">Ver detalles</button> -->
+                    <a href="buda.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$20.000</span>
+            </a>
                 </div>
             </article>
             <!-- Producto maquinas -->
@@ -180,23 +110,12 @@
                 <img src="Imagen/buda pantalla.png" alt="Producto 6" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Maquina Buda con pantalla</h2>
-                    <p class="product-description">
-                    <a href="buda pantalla.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">$40.000</span> </a>
-                <!-- <button class="product-button">Ver detalles</button> -->
+                    <p class="product-description"></p>
+                    <a href="buda pantalla.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$40.000</span>
+            </a>
                 </div>
             </article>
             <!-- Producto maquinas -->
@@ -204,23 +123,12 @@
                 <img src="Imagen/3 en 1.png" alt="Producto 7" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Maquina 3 en 1</h2>
-                    <p class="product-description">
-                    <a href="3 in 1.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">$45.000</span> </a>
-                  <!--  <button class="product-button">Ver detalles</button> -->
+                    <p class="product-description"></p>
+                    <a href="3 in 1.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$45.000</span>
+            </a>
                 </div>
             </article>
             <!-- Producto maquinas -->
@@ -228,23 +136,12 @@
                 <img src="Imagen/sharp blade.jpg" alt="Producto 8" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Sharp Blade</h2>
-                    <p class="product-description">
-                    <a href="sharp blade.html"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">$20.000</span> </a>
-                    <!-- <button class="product-button">Ver detalles</button> -->
+                    <p class="product-description"></p>
+                    <a href="sharp%20blade.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$20.000</span>
+            </a>
                 </div>
             </article>
             <!-- Producto belleza -->
@@ -252,23 +149,12 @@
                 <img src="Imagen/Remington - aguacate.png" alt="Producto 9" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Remington - aguacate</h2>
-                    <p class="product-description">
-                    <a href="Remington-aguacate.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">$75.000</span> </a>
-                    <!-- <button class="product-button">Ver detalles</button> -->
+                    <p class="product-description"></p>
+                    <a href="Remington-aguacate.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$75.000</span>
+            </a>
                 </div>
             </article>
             <!-- Producto belleza -->
@@ -276,23 +162,12 @@
                 <img src="Imagen/Remington - Keratina.png" alt="Producto 10" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Remington - Keratina</h2>
-                    <p class="product-description">
-                    <a href="Remington-keratina.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">$75.000</span> </a>
-                    <!-- <button class="product-button">Ver detalles</button> -->
+                    <p class="product-description"></p>
+                    <a href="Remington-keratina.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$75.000</span>
+            </a>
                 </div>
             </article>
             <!-- Producto belleza -->
@@ -300,22 +175,11 @@
                 <img src="Imagen/Remington.jpg" alt="Producto 11" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Remington</h2>
-                    <a href="Remington-keratina2.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">$45.000</span> </a>
-                <!-- <button class="product-button">Ver detalles</button> -->
+                    <a href="Remington-keratina2.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$45.000</span>
+            </a>
                 </div>
             </article>
             <!-- Producto belleza -->
@@ -323,23 +187,12 @@
                 <img src="Imagen/Babyliss.png" alt="Producto 12" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Babyliss</h2>
-                    <p class="product-description">
-                        <a href="babyliss.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                            <div class="dots_border"></div>
-                            <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                          <span class="text_button">$50.000</span> </a>
-                    <!-- <button class="product-button">Ver detalles</button> -->
+                    <p class="product-description"></p>
+                        <a href="babyliss.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$50.000</span>
+            </a>
                 </div>
             </article>
             <!-- Producto belleza -->
@@ -347,22 +200,11 @@
                 <img src="Imagen/Rizadora.png" alt="Producto 13" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Rizadora</h2>
-                    <a href="rizadora.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">$20.000</span> </a>
-                    <!-- <button class="product-button">Ver detalles</button> -->
+                    <a href="rizadora.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$20.000</span>
+            </a>
                 </div>
             </article>
             <!-- Producto belleza -->
@@ -371,23 +213,12 @@
                 <div class="product-info">
                     <h2 class="product-title"> Rizadora de 3</h2>
                     <p class="product-description">
-                    </p>
-                    <a href="rizadora de 3.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">$50.000</span> </a>
-                    <!-- <button class="product-button">Ver detalles</button> -->
+                    </p></p>
+                    <a href="rizadora de 3.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$50.000</span>
+            </a>
                 </div>
             </article>
             <!-- Producto belleza -->
@@ -395,22 +226,11 @@
                 <img src="Imagen/Cepillo secador.jpeg" alt="Producto 15" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Cepillo secador</h2>
-                    <a href="cepillo secador.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">$50.000</span> </a>
-                    <!-- <button class="product-button">Ver detalles</button> -->
+                    <a href="cepillo secador.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$50.000</span>
+            </a>
                 </div>
             </article>
             <!-- Producto hogar -->
@@ -418,22 +238,11 @@
                 <img src="Imagen/Panda.jpg" alt="Producto 16" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Humificador de Panda</h2>
-                        <a href="humificador 20.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                            <div class="dots_border"></div>
-                            <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                          <span class="text_button">$20.000</span> </a>
-                    <!-- <button class="product-button">Ver detalles</button> -->
+                        <a href="humificador 20.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$20.000</span>
+            </a>
                 </div>
             </article>
             <!-- Producto hogar -->
@@ -441,22 +250,11 @@
                 <img src="Imagen/Humificador Esfera.png" alt="Producto 17" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Humificador de esfera</h2>
-                    <a href="humificador 30.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">$30.000</span> </a>
-                    <!-- <button class="product-button">Ver detalles</button> -->
+                    <a href="humificador 30.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$30.000</span>
+            </a>
                 </div>
             </article>
             <!-- Producto hogar-->
@@ -464,22 +262,11 @@
                 <img src="Imagen/Esencia.jpg" alt="Producto 18" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Esencias</h2>
-                    <a href="Esencias.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">$8.000</span> </a>
-                    <!-- <button class="product-button">Ver detalles</button> -->
+                    <a href="Esencias.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$8.000</span>
+            </a>
                 </div>
             </article>
             <!-- Producto tecnologia-->
@@ -487,22 +274,11 @@
                 <img src="Imagen/balanza plastico.png" alt="Producto 19" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Balanza en plastico</h2>
-                    <a href="balanza plastico.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">$20.000</span> </a>
-                    <!-- <button class="product-button">Ver detalles</button> -->
+                    <a href="balanza plastico.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$20.000</span>
+            </a>
                 </div>
             </article>
             <!-- Producto tecnologia-->
@@ -510,22 +286,35 @@
                 <img src="Imagen/balanza acero.png" alt="Producto 20" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Balamza en acero</h2>
-                    <a href="balanza acero.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">$30.000</span> </a>
-                    <!-- <button class="product-button">Ver detalles</button> -->
+                    <a href="balanza acero.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$30.000</span>
+            </a>
+                </div>
+            </article>
+            <!-- Producto tecnologia-->
+            <article class="product-card tecnologia">
+                <img src="Imagen/usb.jpg" alt="Producto 20" class="product-image">
+                <div class="product-info">
+                    <h2 class="product-title">USB</h2>
+                    <a href="usb.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">ver</span>
+            </a>
+                </div>
+            </article>
+            <!-- Producto tecnologia-->
+            <article class="product-card tecnologia">
+                <img src="Imagen/micro.jpg" alt="Producto 20" class="product-image">
+                <div class="product-info">
+                    <h2 class="product-title">Micro</h2>
+                    <a href="micro.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">ver</span>
+            </a>
                 </div>
             </article>
             <!-- Producto tecnologia-->
@@ -533,22 +322,11 @@
                 <img src="Imagen/Proyector.jpg" alt="Producto 21" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Proyector astronauta</h2>
-                    <a href="proyector.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">$50.000</span> </a>
-                    <!-- <button class="product-button">Ver detalles</button> -->
+                    <a href="proyector.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$50.000</span>
+            </a>
                 </div>
             </article>
             <!-- Producto hogar-->
@@ -556,23 +334,12 @@
                 <img src="Imagen/Esfera de cristal.png" alt="Producto 22" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Lampara esfera de cristal</h2>
-                    <p class="product-description">
-                    <a href="Esfera.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">$20.000</span> </a>
-                    <!-- <button class="product-button">Ver detalles</button> -->
+                    <p class="product-description"></p>
+                    <a href="Esfera.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$20.000</span>
+            </a>
                 </div>
             </article>
             <!-- Producto tecnologia-->
@@ -580,23 +347,12 @@
                 <img src="Imagen/smartwatch t800.png" alt="Producto 23" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Smartwatch T800 Ultra Bluetooth con Pantalla HD y Monitoreo Deportivo.</h2>
-                    <p class="product-description">
-                    <a href="smartwatch t800.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">$70.000</span> </a>
-                    <!-- <button class="product-button">Ver detalles</button> -->
+                    <p class="product-description"></p>
+                    <a href="smartwatch t800.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$70.000</span>
+            </a>
                 </div>
             </article>
             <!-- Producto belleza-->
@@ -604,23 +360,12 @@
                 <img src="Imagen/removedor.png" alt="Producto 24" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Removedor de Motas y Pelusas Recargable</h2>
-                    <p class="product-description">
-                    <a href="removedor.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">$25.000</span> </a>
-                    <!-- <button class="product-button">Ver detalles</button> -->
+                    <p class="product-description"></p>
+                    <a href="removedor.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$25.000</span>
+            </a>
                 </div>
             </article>
             <!-- Producto tecnologia-->
@@ -628,23 +373,12 @@
                 <img src="Imagen/proyector portatil.png" alt="Producto 25" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Proyector LED Portátil HD Multimedia.</h2>
-                    <p class="product-description">
-                    <a href="proyector portatil.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">$180.000</span> </a>
-                    <!-- <button class="product-button">Ver detalles</button> -->
+                    <p class="product-description"></p>
+                    <a href="proyector portatil.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$180.000</span>
+            </a>
                 </div>
             </article>
             <!-- Producto tecnologia-->
@@ -652,23 +386,12 @@
                 <img src="Imagen/proyector hy320.png" alt="Producto 26" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Proyector Smart HY320 Max WiFi con Android y Apps Integradas.</h2>
-                    <p class="product-description">
-                    <a href="proyector hy320.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">$220.000</span> </a>
-                    <!-- <button class="product-button">Ver detalles</button> -->
+                    <p class="product-description"></p>
+                    <a href="proyector hy320.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$220.000</span>
+            </a>
                 </div>
             </article>
             <!-- Producto tecnologia-->
@@ -676,23 +399,12 @@
                 <img src="Imagen/proyector 2 en 1.png" alt="Producto 27" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Proyector Portátil Smart Game 2 en 1 con Juegos y Aplicaciones</h2>
-                    <p class="product-description">
-                    <a href="proyector 2 en 1.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">$280.000</span> </a>
-                    <!-- <button class="product-button">Ver detalles</button> -->
+                    <p class="product-description"></p>
+                    <a href="proyector 2 en 1.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$280.000</span>
+            </a>
                 </div>
             </article>
             <!-- Producto tecnologia-->
@@ -700,23 +412,12 @@
                 <img src="Imagen/Consola.png" alt="Producto 28" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Consola Retro Game Stick Lite 4K con 10.000 Juegos y 2 Controles Inalámbricos.</h2>
-                    <p class="product-description">
-                    <a href="consola.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">$100.000</span> </a>
-                    <!-- <button class="product-button">Ver detalles</button> -->
+                    <p class="product-description"></p>
+                    <a href="consola.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$100.000</span>
+            </a>
                 </div>
             </article>
             <!-- Producto tecnologia-->
@@ -724,23 +425,12 @@
                 <img src="Imagen/consola m15.png" alt="Producto 29" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Consola Retro M15 4K Wireless con 2 Controles Inalámbricos</h2>
-                    <p class="product-description">
-                    <a href="consola m15.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">$120.000</span> </a>
-                    <!-- <button class="product-button">Ver detalles</button> -->
+                    <p class="product-description"></p>
+                    <a href="consola m15.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$120.000</span>
+            </a>
                 </div>
             </article>
             <!-- Producto tecnologia-->
@@ -748,23 +438,12 @@
                 <img src="Imagen/consola x7.png" alt="Producto 30" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Consola Portátil X7 Plus Retro Gaming.</h2>
-                    <p class="product-description">
-                    <a href="consola x7.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">$150.000</span> </a>
-                    <!-- <button class="product-button">Ver detalles</button> -->
+                    <p class="product-description"></p>
+                    <a href="consola x7.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$150.000</span>
+            </a>
                 </div>
             </article>
                         <!-- Producto belleza-->
@@ -772,23 +451,12 @@
                 <img src="Imagen/Streaming device Onn.png" alt="Producto 31" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Streaming Device.</h2>
-                    <p class="product-description">
-                    <a href="streaming device.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">$95.000</span> </a>
-                    <!-- <button class="product-button">Ver detalles</button> -->
+                    <p class="product-description"></p>
+                    <a href="streaming device.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$95.000</span>
+            </a>
                 </div>
             </article>
                         <!-- Producto belleza-->
@@ -796,23 +464,12 @@
                 <img src="Imagen/Streaming box.png" alt="Producto 32" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Streaming Box.</h2>
-                    <p class="product-description">
-                    <a href="streaming box.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">$110.000</span> </a>
-                    <!-- <button class="product-button">Ver detalles</button> -->
+                    <p class="product-description"></p>
+                    <a href="streaming box.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$110.000</span>
+            </a>
                 </div>
             </article>
               <!-- Producto tecnologia-->
@@ -820,23 +477,12 @@
                 <img src="Imagen/Hidrolavadora.png" alt="Producto 33" class="product-image">
                 <div class="product-info">
                     <h2 class="product-title">Hidrolavadora Portátil Inalámbrica Recargable</h2>
-                    <p class="product-description">
-                    <a href="hidrolavadora.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">$150.000</span> </a>
-                    <!-- <button class="product-button">Ver detalles</button> -->
+                    <p class="product-description"></p>
+                    <a href="hidrolavadora.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">$150.000</span>
+            </a>
                 </div>
             </article>
             <!-- Producto nuevo-->
@@ -845,72 +491,14 @@
                 <div class="product-info">
                     <h2 class="product-title">Productos nuevos llegando</h2>
                     <p class="product-description"></p>
-                    <a href="Nuevos.html" title="Ver detalles" aria-label="Ver detalles"> <button class="button">
-                        <div class="dots_border"></div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"
-                        ><path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-                          ></path>
-                          <path
-                            class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-                          ></path>
-                        </svg>
-                      <span class="text_button">????</span> </a>
-                </div>
+                    <a href="Nuevos.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                <div class="dots_border"></div>
+                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                <span class="text_button">Ver más</span>
+            </a></div>
             </article>
         </div>
     </main>
-    <script>
-        const slider = document.getElementById('slider');
-        const slides = document.querySelectorAll('.slide');
-        const dotsContainer = document.querySelector('.slider-dots');
-        let currentSlide = 0;
-        
-        // Crear dots
-        slides.forEach((_, i) => {
-            const dot = document.createElement('div');
-            dot.className = `dot ${i === 0 ? 'active' : ''}`;
-            dot.addEventListener('click', () => goToSlide(i));
-            dotsContainer.appendChild(dot);
-        });
-        
-        // Función para ir a un slide específico
-        function goToSlide(n) {
-            currentSlide = n;
-            updateSlider();
-        }
-        
-        // Actualizar slider
-        function updateSlider() {
-            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-            document.querySelectorAll('.dot').forEach((dot, i) => {
-                dot.classList.toggle('active', i === currentSlide);
-            });
-        }
-        
-        // Siguiente slide
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            updateSlider();
-        }
-        
-        // Slide anterior
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            updateSlider();
-        }
-        
-        // Event listeners para botones
-        document.querySelector('.next').addEventListener('click', nextSlide);
-        document.querySelector('.prev').addEventListener('click', prevSlide);
-        
-        // Autoplay
-        setInterval(nextSlide, 5000);
-        </script>
     <a class="whatsapp-btn" href="https://wa.me/573009821575" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp"><i class="fab fa-whatsapp"></i></a>
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
@@ -935,7 +523,7 @@
 </script>
 <!--filtro-->
 <script>
-function filtrar(categoria){
+function filtrar(categoria, btn){
   let productos = document.querySelectorAll(".product-card");
 
   productos.forEach(p=>{
@@ -945,8 +533,10 @@ function filtrar(categoria){
       p.classList.add("oculto");
     }
   });
+
+  document.querySelectorAll(".filters button").forEach(b => b.classList.remove("active"));
+  if(btn) btn.classList.add("active");
 }
-</script>
 </script>
 </body>
 </html>

@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Detalle de Producto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        /*=============================================
+        =            Header            =
+        =============================================*/
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /*
+        */
+        .btn-container {
+            margin-right: auto; /* Pushes HOME button to the left */
+        }
+        .product-slider {
+            width: 300px;
+            margin-left: auto;
+        }
+        .product-slide {
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .product-slide img {
+            max-width: 100px;
+            margin: 0 auto;
+            border-radius: 8px;
+        }
+        .product-slide p {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        /*=============================================
+                    button home
+        ==============================================*/
+        a#space-btn {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        border: 0;
+        outline: 0;
+        border-radius: 11px;
+        text-decoration: none;
+        background: #03001e;
+        background: linear-gradient(80deg, #ffcbf2, #ec38bc, #7303c0, #03001e);
+        cursor: pointer;
+        }
+        .btn-container {
+        width: 200px;
+        height: 60px;
+        position: relative;
+        overflow: visible;
+        }
+        .btn-container::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 20px;
+        z-index: -1;
+        background: #03001e;
+        background: linear-gradient(80deg, #ffcbf2, #ec38bc, #7303c0, #03001e);
+        filter: blur(20px);
+        opacity: 0;
+        }
+        .btn-container:hover {
+        transform: scale(1.1);
+        transition: all 0.6s cubic-bezier(0.15, 0.83, 0.66, 1);
+        }
+        .btn-container:hover:after {
+        transition: all 0.6s cubic-bezier(0.15, 0.83, 0.66, 1);
+        opacity: 1;
+        }
+        .btn-container:active {
+        transform: scale(1);
+        }
+        .btn-container:active:after {
+        opacity: 0;
+        }
+        #space-btn span {
+        color: white;
+        font-weight: 700;
+        font-size: 16px;
+        }
+        #space-btn .star {
+        width: 1px;
+        height: 1px;
+        background-color: white;
+        border-radius: 50%;
+        animation: blink 2s cubic-bezier(0.15, 0.83, 0.66, 1) infinite;
+        }
+        #space-btn .shooting-star {
+        width: 80px;
+        height: 1px;
+        position: absolute;
+        background: linear-gradient(80deg, #ffffffff, #ffffff00);
+        border-radius: 50%;
+        transform: rotate(-40deg);
+        opacity: 0;
+        }
+
+        #space-btn .shooting-star-1 {
+        animation: fallingStar1 4s 6s cubic-bezier(0.15, 0.83, 0.66, 1) infinite;
+        }
+
+        #space-btn .shooting-star-2 {
+        animation: fallingStar2 2s 10s cubic-bezier(0.15, 0.83, 0.66, 1) infinite;
+        }
+
+        #space-btn .shooting-star-3 {
+        animation: fallingStar3 8s 20s cubic-bezier(0.15, 0.83, 0.66, 1) infinite;
+        }
+
+        #space-btn .shooting-star-4 {
+        animation: fallingStar4 4s 6s cubic-bezier(0.15, 0.83, 0.66, 1) infinite;
+        }
+
+        @keyframes blink {
+        0% {
+            box-shadow: 0 0 10px 0 white;
+        }
+
+        50% {
+            box-shadow: 0 0 10px 2px white;
+        }
+
+        100% {
+            box-shadow: 0 0 10px 0 white;
+        }
+        }
+
+        @keyframes fallingStar1 {
+        0% {
+            top: -10px;
+            left: 220px;
+            opacity: 1;
+        }
+
+        100% {
+            top: 200px;
+            left: -20px;
+            opacity: 1;
+        }
+        }
+
+        @keyframes fallingStar2 {
+        0% {
+            top: -10px;
+            left: 150px;
+            opacity: 1;
+        }
+
+        100% {
+            top: 200px;
+            left: -90px;
+            opacity: 1;
+        }
+        }
+
+        @keyframes fallingStar3 {
+        0% {
+            top: -10px;
+            left: 80px;
+            opacity: 1;
+        }
+
+        100% {
+            top: 200px;
+            left: -160px;
+            opacity: 1;
+        }
+        }
+
+        @keyframes fallingStar4 {
+        0% {
+            top: -10px;
+            left: 0px;
+            opacity: 1;
+        }
+
+        100% {
+            top: 200px;
+            left: -240px;
+            opacity: 1;
+        }
+        }
+            /*=============================================
+                                Logo
+            ==============================================*/
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .main-image {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .thumbnails {
+            display: flex;
+            gap: 10px;
+        }
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .thumbnail:hover {
+            border-color: #0066ff;
+        }
+
+        .thumbnail.active {
+            border-color: #00f7ff;
+            box-shadow: 0 0 10px rgba(0,247,255,.6);
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info h1 {
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .stars {
+            color: #ffd700;
+        }
+
+        .price {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 24px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: #0066ff;
+            color: white;
+            border: none;
+        }
+
+        .btn-secondary {
+            background-color: white;
+            border: 1px solid #ddd;
+        }
+
+        .tabs {
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 24px;
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 24px;
+        }
+        .tab-btn {
+            padding: 12px 24px;
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .tab-btn.active {
+            border-bottom-color: #0066ff;
+            color: #0066ff;
+        }
+        .tab-content {
+            margin-top: 24px;
+        }
+
+        .tab-panel {
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .spec-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .spec-label {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .reviews {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .review {
+            padding-bottom: 16px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .review-content {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .description {
+            line-height: 1.6;
+            color: #333;
+        }
+/*Configuracion reponsivo*/
+.header {
+    background-color: black;
+    padding: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Ajustes del botón HOME */
+.btn-container {
+    width: 120px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+#space-btn {
+    height: 40px;
+    font-size: 14px;
+}
+
+/* Ajustes del logo */
+.logo {
+    width: 80px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Ajustes del slider */
+.product-slider {
+    width: auto;
+    max-width: 200px;
+    flex-grow: 1;
+}
+
+.product-slide img {
+    max-width: 60px;
+    height: 40px;
+    object-fit: cover;
+}
+
+/* Media queries para dispositivos móviles */
+@media (max-width: 768px) {
+    .header {
+        padding: 0.25rem;
+    }
+
+    .btn-container {
+        width: 80px;
+        height: 30px;
+    }
+
+    #space-btn {
+        height: 30px;
+        font-size: 12px;
+    }
+    .logo {
+        width: 60px;
+        height: 30px;
+    }
+    .product-slider {
+        max-width: 150px;
+    }
+    .product-slide img {
+        max-width: 40px;
+        height: 30px;
+    }
+}
+@media (max-width: 480px) {
+    .product-slider {
+        max-width: 120px;
+    }
+    .product-slide img {
+        max-width: 30px;
+        height: 25px;
+    }
+}
+/*=============================================
+=        Detalle de producto global           =
+=============================================*/
+
+.product-detail-page {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top left, rgba(0, 247, 255, 0.12), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(255, 0, 255, 0.12), transparent 35%),
+        linear-gradient(270deg, #0f0f0f, #1a1a1a, #0f0f0f);
+    color: white;
+}
+
+.product-detail-page .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px 40px;
+}
+
+.product-detail-page .product-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.product-detail-page .main-image {
+    width: 100%;
+    border-radius: 18px;
+    border: 2px solid rgba(0, 247, 255, 0.35);
+    box-shadow:
+        0 0 20px rgba(0, 247, 255, 0.35),
+        0 0 40px rgba(255, 0, 255, 0.18);
+}
+
+.product-detail-page .product-info {
+    position: static;
+    transform: none;
+    opacity: 1;
+    background: rgba(8, 12, 20, 0.8);
+    border: 1px solid rgba(0, 247, 255, 0.25);
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 0 25px rgba(0, 247, 255, 0.18);
+}
+
+.product-detail-page .price {
+    color: #00f7ff;
+    text-shadow: 0 0 12px rgba(0, 247, 255, 0.8);
+}
+
+.storage-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 16px 0 24px;
+}
+
+.storage-btn {
+    padding: 8px 16px;
+    border-radius: 10px;
+    border: 2px solid rgba(0,247,255,.35);
+    background: transparent;
+    color: white;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.storage-btn:hover {
+    border-color: #00f7ff;
+}
+
+.storage-btn.active {
+    background: #00eaff;
+    color: #000;
+    border-color: #00eaff;
+    box-shadow: 0 0 10px #00eaff, 0 0 20px rgba(0,234,255,.5);
+}
+
+.product-detail-page .tabs {
+    margin-top: 30px;
+    border-bottom: 1px solid rgba(0, 247, 255, 0.25);
+}
+
+.product-detail-page .tab-btn {
+    color: white;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+}
+
+.product-detail-page .tab-btn.active {
+    color: #00f7ff;
+    border-bottom-color: #00f7ff;
+}
+
+.product-detail-page .description,
+.product-detail-page .specs-grid,
+.product-detail-page .reviews-container {
+    background: rgba(8, 12, 20, 0.85);
+    border: 1px solid rgba(0, 247, 255, 0.25);
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 0 25px rgba(0, 247, 255, 0.15);
+}
+
+@media screen and (max-width: 768px) {
+    .product-detail-page .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-detail-page .container {
+        padding-top: 120px;
+    }
+}
+    </style>
+</head>
+<body class="product-detail-page">
+    <!-- Header con navegación -->
+    <header class="header">
+        <nav class="nav">
+<div class="btn-container">
+    <a id="space-btn" class="home-btn" href="index.html">
+        <span>HOME</span>
+    </a>
+</div>
+        <!-- logo -->
+            <div class="logo">
+            <a href="Nuevos.html"><img src="Imagen/logo.jpg" alt="Logo"></a> 
+            </div>
+        <!--  -->
+        <div class="product-slider">
+            <div class="product-slide">
+                <a href="micro.html"><img src="Imagen/micro.jpg" alt="Producto 1"></a>
+            </div>
+            <div class="product-slide">
+                <a href="humificador 20.html"><img src="Imagen/Humificador Esfera.png" alt="Producto 2"></a>
+            </div>
+            <div class="product-slide">
+                <a href="proyector.html"><img src="Imagen/Proyector.jpg" alt="Producto 3"></a>
+            </div>
+        </div>
+        </nav>
+    </header>
+    <script>
+        // Genera las estrellas decorativas del botón HOME (antes eran ~40 divs pegados a mano)
+        (function crearEstrellas(){
+            const btn = document.getElementById('space-btn');
+            if(!btn) return;
+            const total = 25;
+            for(let i = 0; i < total; i++){
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.position = 'absolute';
+                star.style.left = (Math.random() * 250) + 'px';
+                star.style.top = (Math.random() * 55) + 'px';
+                star.style.animationDelay = (Math.random() * 5) + 's';
+                star.style.transform = `scale(${(Math.random() * 1.8 + 0.1).toFixed(2)})`;
+                btn.appendChild(star);
+            }
+            for(let i = 1; i <= 4; i++){
+                const shoot = document.createElement('div');
+                shoot.className = `shooting-star shooting-star-${i}`;
+                shoot.style.animationDelay = (Math.random() * 5) + 's';
+                btn.appendChild(shoot);
+            }
+        })();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+      //slider
+    $(document).ready(function(){
+            $('.product-slider').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                arrows: false,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 2
+                        }
+                    }
+                ]
+            });
+        });
+    </script>   
+    <div class="container">
+        <div class="product-grid">
+            <!-- Galería de imágenes -->
+            <div class="gallery">
+                <img src="Imagen/usb.jpg "alt="Producto" class="main-image">
+                <div class="thumbnails">
+                    <div class="thumbnail">
+                        <img src="Imagen/usb 1.png" alt="Miniatura 1">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="Imagen/usb 2.png" alt="Miniatura 2">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="Imagen/usb 3.png" alt="Miniatura 3">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="Imagen/usb 4.png" alt="Miniatura 4">
+                    </div>
+                </div>
+            </div>
+            <!-- Información del producto -->
+            <div class="product-info">
+                <h1>Memoria USB</h1>
+                <div class="price" id="precio-producto">$15.000</div>
+
+                <div class="storage-options">
+                    <button class="storage-btn active" data-price="16000" onclick="seleccionarCapacidad(this)">8GB</button>
+                    <button class="storage-btn" data-price="30000" onclick="seleccionarCapacidad(this)">16GB</button>
+                    <button class="storage-btn" data-price="48000" onclick="seleccionarCapacidad(this)">32GB</button>
+                    <button class="storage-btn" data-price="64000" onclick="seleccionarCapacidad(this)">64GB</button>
+                    <button class="storage-btn" data-price="98000" onclick="seleccionarCapacidad(this)">128GB</button>
+                    <button class="storage-btn" data-price="162000" onclick="seleccionarCapacidad(this)">256GB</button>
+                </div>
+
+                <div>
+                    <p class="product-description">
+                        Memoria USB de doble conector: un extremo USB estándar para PC o portátil, y otro
+                        Micro USB para conectar directamente a tu celular Android sin necesidad de adaptador.
+                        Ideal para pasar fotos, videos y archivos entre tu teléfono y tu computador al instante.
+                        Diseño compacto y resistente, disponible desde 8GB hasta 256GB según lo que necesites.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <a href="https://wa.me/573009821575" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp"> <i class="fab fa-whatsapp"></i></a>
+        <!-- Tabs -->
+        <div class="tabs">
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="specs">Especificaciones</button>
+                <button class="tab-btn" data-tab="description">Descripción</button>
+                <button class="tab-btn" data-tab="reviews">Reseñas</button>
+            </div>
+        </div>
+        <!-- Contenido de los tabs -->
+        <div class="tab-content">
+            <!-- Especificaciones -->
+            <div class="tab-panel active" id="specs">
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">Marca</div>
+                        <div class="spec-value">Generica</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Modelo</div>
+                        <div class="spec-value">USB 2 en 1</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Conectores</div>
+                        <div class="spec-value">USB + Micro USB</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Capacidades</div>
+                        <div class="spec-value">8GB a 256GB</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Compatibilidad</div>
+                        <div class="spec-value">PC, laptop y Android</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Descripción -->
+            <div class="tab-panel" id="description">
+                <div class="description">
+                    <p>Características principales:</p>
+                    <ul>
+                        <li>Modelo: USB 2 en 1 (USB + Micro USB)</li>
+                        <li>Capacidades disponibles: 8GB, 16GB, 32GB, 64GB, 128GB y 256GB</li>
+                        <li>Conector USB estándar para computador o laptop</li>
+                        <li>Conector Micro USB para conexión directa a celulares Android</li>
+                        <li>No requiere adaptador ni cable adicional</li>
+                        <li>Ideal para transferir fotos, videos, música y documentos</li>
+                        <li>Diseño compacto, resistente al uso diario</li>
+                        <li>Compatible con Windows, Mac y dispositivos Android</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Reviews -->
+            <div class="tab-panel" id="reviews">
+                <div class="reviews-container">
+                    <!-- Resumen de calificaciones -->
+                    <div class="ratings-summary">
+                        <div class="overall-rating">
+                            <h2>Opiniones del producto</h2>
+                            <div class="total-ratings">Calificacion</div>
+                            <div class="rating-big">4.0</div>
+                            <div class="stars">★★★★☆</div>
+                        </div>
+                        <!-- Barras de calificación -->
+                        <div class="rating-bars">
+                            <div class="rating-bar-item">
+                                <span>5</span>
+                                <div class="bar-container">
+                                    <div class="bar" style="width: 45%"></div>
+                                </div>
+                            </div>
+                            <div class="rating-bar-item">
+                                <span>4</span>
+                                <div class="bar-container">
+                                    <div class="bar" style="width: 30%"></div>
+                                </div>
+                            </div>
+                            <div class="rating-bar-item">
+                                <span>3</span>
+                                <div class="bar-container">
+                                    <div class="bar" style="width: 15%"></div>
+                                </div>
+                            </div>
+                            <div class="rating-bar-item">
+                                <span>2</span>
+                                <div class="bar-container">
+                                    <div class="bar" style="width: 7%"></div>
+                                </div>
+                            </div>
+                            <div class="rating-bar-item">
+                                <span>1</span>
+                                <div class="bar-container">
+                                    <div class="bar" style="width: 3%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Calificación de características -->
+                        <div class="feature-ratings">
+                            <h3>Calificación de características</h3>
+                            <div class="feature-rating-item">
+                                <span>Duración de la batería</span>
+                                <div class="feature-stars">
+                                    <div class="stars">★★★★☆</div>
+                                </div>
+                            </div>
+                            <div class="feature-rating-item">
+                                <span>Comodidad</span>
+                                <div class="feature-stars">
+                                    <div class="stars">★★★★☆</div>
+                                </div>
+                            </div>
+                            <div class="feature-rating-item">
+                                <span>Relación precio-calidad</span>
+                                <div class="feature-stars">
+                                    <div class="stars">★★★★☆</div>
+                                </div>
+                            </div>
+                            <div class="feature-rating-item">
+                                <span>Calidad de los materiales</span>
+                                <div class="feature-stars">
+                                    <div class="stars">★★★★☆</div>
+                                </div>
+                            </div>
+                            <div class="feature-rating-item">
+                                <span>Calidad del sonido</span>
+                                <div class="feature-stars">
+                                    <div class="stars">★★★☆☆</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<style>
+/* Estilos adicionales para las reseñas */
+.reviews-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.ratings-summary {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 40px;
+}
+
+.overall-rating {
+    text-align: center;
+}
+
+.rating-big {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.total-ratings {
+    color: #666;
+    font-size: 14px;
+}
+
+.rating-bars {
+    margin-top: 20px;
+}
+
+.rating-bar-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.bar-container {
+    flex-grow: 1;
+    background-color: #eee;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.bar {
+    background-color: #ffd700;
+    height: 100%;
+}
+
+.feature-ratings {
+    grid-column: 1 / -1;
+    margin-top: 30px;
+}
+
+.feature-rating-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.featured-reviews {
+    margin-top: 30px;
+}
+
+.review {
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.review-footer {
+    margin-top: 10px;
+}
+
+.util-btn {
+    padding: 5px 15px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    background: white;
+    color: #666;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.util-btn:hover {
+    background: #f5f5f5;
+}
+
+h3 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .ratings-summary {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+<script>
+        // Función para el selector de capacidad (usar solo si descomentaste el bloque de storage-options)
+        function seleccionarCapacidad(btn){
+            document.querySelectorAll('.storage-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const precio = Number(btn.getAttribute('data-price'));
+            document.getElementById('precio-producto').textContent = '$' + precio.toLocaleString('es-CO');
+        }
+        // Script para los tabs
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remover clase active de todos los botones
+                document.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                // Agregar clase active al botón clickeado
+                button.classList.add('active');
+                // Ocultar todos los paneles
+                document.querySelectorAll('.tab-panel').forEach(panel => {
+                    panel.classList.remove('active');
+                });
+                // Mostrar el panel correspondiente
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        // Script para cambiar la imagen principal
+        document.querySelectorAll('.thumbnail').forEach(thumbnail => {
+            thumbnail.addEventListener('click', () => {
+                const mainImage = document.querySelector('.main-image');
+                const thumbImg = thumbnail.querySelector('img');
+                mainImage.src = thumbImg.src;
+                document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                thumbnail.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

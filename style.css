@@ -1283,3 +1283,279 @@ body{
         bottom: 6px;
     }
 }
+
+/*=============================================
+=     Header limpio para páginas sin producto  =
+=============================================*/
+.nav {
+    justify-content: space-between;
+    gap: 16px;
+}
+.btn-container {
+    margin-right: 0;
+}
+
+/*=============================================
+=     Cosmos Hero: planeta + Nuevos Ingresos   =
+=============================================*/
+.cosmos-hero {
+    position: relative;
+    height: 620px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,0,255,.10), transparent 45%),
+        radial-gradient(circle at 80% 75%, rgba(0,247,255,.12), transparent 45%),
+        radial-gradient(ellipse at center, #12082e 0%, #04010c 78%);
+    border-bottom: 2px solid #ff00ff;
+}
+
+/* Nebulosa de fondo, deriva lenta */
+.cosmos-nebula {
+    position: absolute;
+    inset: -10%;
+    z-index: 0;
+    background:
+        radial-gradient(circle at 30% 40%, rgba(255,0,255,.16), transparent 30%),
+        radial-gradient(circle at 70% 30%, rgba(0,247,255,.16), transparent 30%),
+        radial-gradient(circle at 50% 80%, rgba(122,0,255,.16), transparent 32%);
+    filter: blur(30px);
+    animation: derivaNebulosa 22s ease-in-out infinite alternate;
+}
+
+@keyframes derivaNebulosa {
+    0%   { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(3%, -3%) scale(1.08); }
+}
+
+/* Estrellas: variadas en color, con leve deriva */
+.cosmos-stars {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    animation: derivaEstrellas 60s linear infinite;
+}
+
+.cosmos-stars .estrella {
+    position: absolute;
+    border-radius: 50%;
+    animation: parpadeoColor 3.5s ease-in-out infinite;
+}
+
+@keyframes derivaEstrellas {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-40px); }
+}
+
+@keyframes parpadeoColor {
+    0%, 100% { opacity: .25; transform: scale(1); }
+    50%      { opacity: 1;   transform: scale(1.5); }
+}
+
+/* Título arriba, limpio */
+.cosmos-title {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    margin-top: 34px;
+}
+
+.cosmos-title h1 {
+    font-size: 2.3rem;
+    font-weight: 900;
+    color: white;
+    letter-spacing: 4px;
+    text-shadow: 0 0 12px #00f7ff, 0 0 30px #ff00ff;
+}
+
+.cosmos-title p {
+    margin-top: 8px;
+    color: #cfd6ff;
+    font-size: 0.95rem;
+    letter-spacing: .5px;
+}
+
+/* Contenedor del planeta, centrado y grande */
+.earth-wrap {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.earth-glow {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,247,255,.35), transparent 70%);
+    filter: blur(10px);
+    animation: pulsoGlow 4s ease-in-out infinite;
+}
+
+@keyframes pulsoGlow {
+    0%, 100% { opacity: .6; transform: scale(1); }
+    50%      { opacity: 1;  transform: scale(1.08); }
+}
+
+/* Esfera realista: luz, sombra de terminador y textura */
+.earth {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 32% 28%, rgba(255,255,255,.55), transparent 35%),
+        radial-gradient(circle at 55% 55%, #1fb6ff 0%, #0a3d91 45%, #050a2e 78%, #01030f 100%);
+    box-shadow:
+        0 0 50px rgba(0,247,255,.5),
+        0 0 110px rgba(255,0,255,.28),
+        inset -40px -25px 70px rgba(0,0,0,.75);
+    animation: girarLento 26s linear infinite;
+}
+
+/* Meridianos: líneas verticales que se desplazan = ilusión de rotación */
+.earth-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        repeating-linear-gradient(90deg, rgba(120,220,255,.35) 0px, transparent 1.5px, transparent 26px),
+        repeating-linear-gradient(0deg, rgba(120,220,255,.18) 0px, transparent 1px, transparent 34px);
+    mix-blend-mode: screen;
+    animation: girarMeridianos 12s linear infinite;
+}
+
+@keyframes girarMeridianos {
+    from { background-position: 0 0, 0 0; }
+    to   { background-position: -300px 0, 0 0; }
+}
+
+@keyframes girarLento {
+    0%, 100% { filter: brightness(1); }
+    50%      { filter: brightness(1.05); }
+}
+
+/* Luces de ciudad: puntos generados por JS */
+.earth-lights {
+    position: absolute;
+    inset: 0;
+}
+
+.earth-lights .luz {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #eafcff;
+    box-shadow: 0 0 6px 2px rgba(150,235,255,.9);
+    animation: parpadeoLuz 2.6s ease-in-out infinite;
+}
+
+@keyframes parpadeoLuz {
+    0%, 100% { opacity: .35; }
+    50%      { opacity: 1;   }
+}
+
+/* Anillo orbital fino alrededor del planeta */
+.earth-ring {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,247,255,.3);
+    box-shadow: 0 0 20px rgba(0,247,255,.15);
+    animation: girarAnillo 40s linear infinite;
+}
+
+.earth-ring::before,
+.earth-ring::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #00f7ff;
+    box-shadow: 0 0 10px #00f7ff;
+    top: 50%;
+    left: -3px;
+}
+
+.earth-ring::after {
+    top: auto;
+    bottom: -3px;
+    left: 50%;
+    background: #ff00ff;
+    box-shadow: 0 0 10px #ff00ff;
+}
+
+@keyframes girarAnillo {
+    to { transform: rotate(360deg); }
+}
+
+/* Iconos "misteriosos" orbitando (sin revelar el producto) */
+.mystery-orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+}
+
+.mystery-orbit i {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(5, 4, 20, 0.75);
+    border: 1px solid rgba(0,247,255,.5);
+    color: #00f7ff;
+    font-size: 1.1rem;
+    box-shadow: 0 0 16px rgba(0,247,255,.55);
+    animation: pulsoIcono 3s ease-in-out infinite;
+}
+
+@keyframes pulsoIcono {
+    0%, 100% { box-shadow: 0 0 16px rgba(0,247,255,.55); color: #00f7ff; }
+    50%      { box-shadow: 0 0 22px rgba(255,0,255,.65); color: #ff8bfd; }
+}
+
+.orbit-a { width: 380px; height: 380px; margin: -190px 0 0 -190px; animation: orbitarCW 14s linear infinite; }
+.orbit-b { width: 460px; height: 460px; margin: -230px 0 0 -230px; animation: orbitarCCW 20s linear infinite; }
+.orbit-c { width: 540px; height: 540px; margin: -270px 0 0 -270px; animation: orbitarCW 26s linear infinite; }
+.orbit-d { width: 610px; height: 610px; margin: -305px 0 0 -305px; animation: orbitarCCW 32s linear infinite; }
+.orbit-e { width: 680px; height: 680px; margin: -340px 0 0 -340px; animation: orbitarCW 38s linear infinite; }
+
+@keyframes orbitarCW  { from { transform: rotate(0deg);   } to { transform: rotate(360deg);  } }
+@keyframes orbitarCCW { from { transform: rotate(0deg);   } to { transform: rotate(-360deg); } }
+
+.orbit-a i { animation: pulsoIcono 3s ease-in-out infinite, contraCW 14s linear infinite; }
+.orbit-b i { animation: pulsoIcono 3s ease-in-out infinite .3s, contraCCW 20s linear infinite; }
+.orbit-c i { animation: pulsoIcono 3s ease-in-out infinite .6s, contraCW 26s linear infinite; }
+.orbit-d i { animation: pulsoIcono 3s ease-in-out infinite .9s, contraCCW 32s linear infinite; }
+.orbit-e i { animation: pulsoIcono 3s ease-in-out infinite 1.2s, contraCW 38s linear infinite; }
+
+@keyframes contraCW  { from { transform: translateX(-50%) rotate(0deg);   } to { transform: translateX(-50%) rotate(-360deg); } }
+@keyframes contraCCW { from { transform: translateX(-50%) rotate(0deg);   } to { transform: translateX(-50%) rotate(360deg);  } }
+
+@media screen and (max-width: 768px) {
+    .cosmos-hero { height: 480px; }
+    .cosmos-title h1 { font-size: 1.5rem; letter-spacing: 2px; }
+    .earth-glow { width: 260px; height: 260px; }
+    .earth { width: 180px; height: 180px; }
+    .earth-ring { width: 240px; height: 240px; }
+    .orbit-a { width: 240px; height: 240px; margin: -120px 0 0 -120px; }
+    .orbit-b { width: 290px; height: 290px; margin: -145px 0 0 -145px; }
+    .orbit-c { width: 340px; height: 340px; margin: -170px 0 0 -170px; }
+    .orbit-d, .orbit-e { display: none; }
+    .mystery-orbit i { width: 36px; height: 36px; font-size: 0.9rem; }
+}

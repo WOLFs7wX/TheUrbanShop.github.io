@@ -1,106 +1,340 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2 TEMPORADA</title>
-    <link rel="stylesheet" href="style2.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Nuevos Ingresos - UrbanShop</title>
+    <style>
+        /*=============================================
+        =            Header (igual al de tus páginas de producto) =
+        =============================================*/
+        .header {
+            background-color: black;
+            padding: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn-container {
+            width: 120px;
+            height: 40px;
+            flex-shrink: 0;
+            position: relative;
+            overflow: visible;
+        }
+
+        a#space-btn {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            border: 0;
+            outline: 0;
+            border-radius: 11px;
+            text-decoration: none;
+            background: linear-gradient(80deg, #ffcbf2, #ec38bc, #7303c0, #03001e);
+            cursor: pointer;
+        }
+
+        #space-btn span {
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        #space-btn .star {
+            width: 1px;
+            height: 1px;
+            background-color: white;
+            border-radius: 50%;
+            animation: blink 2s cubic-bezier(0.15, 0.83, 0.66, 1) infinite;
+        }
+
+        #space-btn .shooting-star {
+            width: 80px;
+            height: 1px;
+            position: absolute;
+            background: linear-gradient(80deg, #ffffffff, #ffffff00);
+            border-radius: 50%;
+            transform: rotate(-40deg);
+            opacity: 0;
+        }
+
+        #space-btn .shooting-star-1 { animation: fallingStar1 4s 6s cubic-bezier(0.15, 0.83, 0.66, 1) infinite; }
+        #space-btn .shooting-star-2 { animation: fallingStar2 2s 10s cubic-bezier(0.15, 0.83, 0.66, 1) infinite; }
+        #space-btn .shooting-star-3 { animation: fallingStar3 8s 20s cubic-bezier(0.15, 0.83, 0.66, 1) infinite; }
+        #space-btn .shooting-star-4 { animation: fallingStar4 4s 6s cubic-bezier(0.15, 0.83, 0.66, 1) infinite; }
+
+        @keyframes blink {
+            0%, 100% { box-shadow: 0 0 10px 0 white; }
+            50%      { box-shadow: 0 0 10px 2px white; }
+        }
+        @keyframes fallingStar1 { 0% { top:-10px; left:220px; opacity:1; } 100% { top:200px; left:-20px; opacity:1; } }
+        @keyframes fallingStar2 { 0% { top:-10px; left:150px; opacity:1; } 100% { top:200px; left:-90px; opacity:1; } }
+        @keyframes fallingStar3 { 0% { top:-10px; left:80px;  opacity:1; } 100% { top:200px; left:-160px; opacity:1; } }
+        @keyframes fallingStar4 { 0% { top:-10px; left:0px;   opacity:1; } 100% { top:200px; left:-240px; opacity:1; } }
+
+        .logo {
+            width: 80px;
+            height: 40px;
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .product-slider {
+            width: auto;
+            max-width: 200px;
+            flex-grow: 1;
+        }
+
+        .product-slide {
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .product-slide img {
+            max-width: 60px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .header { padding: 0.25rem; }
+            .btn-container { width: 80px; height: 30px; }
+            #space-btn { font-size: 12px; }
+            .logo { width: 60px; height: 30px; }
+            .product-slider { max-width: 150px; }
+            .product-slide img { max-width: 40px; height: 30px; }
+        }
+    </style>
 </head>
 <body>
-        <!-- header -->
-    <header>
-        <div class="logo">wolf</div>
-        <ul class="menu">
-            <li>Home</li>
-            <li>Blog</li>
-        </ul>
+    <div class="background-grid"></div>
+
+    <!-- Header con navegación -->
+    <header class="header">
+        <nav class="nav">
+            <div class="btn-container">
+                <a id="space-btn" class="home-btn" href="index.html">
+                    <span>HOME</span>
+                </a>
+            </div>
+            <div class="logo">
+                <a href="Nuevos.html"><img src="Imagen/logo.jpg" alt="Logo"></a>
+            </div>
+            <div class="product-slider">
+                <div class="product-slide">
+                    <a href="m90.html"><img src="Imagen/M90.jpg" alt="Producto 1"></a>
+                </div>
+                <div class="product-slide">
+                    <a href="humificador 20.html"><img src="Imagen/Humificador Esfera.png" alt="Producto 2"></a>
+                </div>
+                <div class="product-slide">
+                    <a href="proyector.html"><img src="Imagen/Proyector.jpg" alt="Producto 3"></a>
+                </div>
+            </div>
+        </nav>
     </header>
-    <!-- slider -->
-    <div class="slider">
-        <!-- list Items -->
-        <div class="list">
-            <div class="item active">
-                <img src="Imagen/audifonos.jpg">
-                <div class="content">
-                    <p>Destacados</p>
-                    <h2>AUDIFONOS</h2>
-                    <p>
-                        Descripción
-                    </p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="imagen/Bellaza M.jpg">
-                <div class="content">
-                    <p>Destacados</p>
-                    <h2>BELLEZA MUJER</h2>
-                    <p>
-                        Descripción
-                    </p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="Imagen/Bellaza H.jpg">
-                <div class="content">
-                    <p>Destacados</p>
-                    <h2>BELLEZA HOMBRE</h2>
-                    <p>
-                        Descripción
-                    </p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="imagen/Parlantes.jpg">
-                <div class="content">
-                    <p>Destacados</p>
-                    <h2>PARLANTES</h2>
-                    <p>
-                        Descripción
-                    </p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="Imagen/Hogar.jpg">
-                <div class="content">
-                    <p>Destacados</p>
-                    <h2>HOGAR</h2>
-                    <p>
-                        Descripción
-                    </p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="Imagen/Tecnología .jpg">
-                <div class="content">
-                    <p>Destacados</p>
-                    <h2>TECNOLOGIA</h2>
-                    <p>
-                        Descripción
-                    </p>
-                </div>
+
+    <!-- Cosmos: Nuevos Ingresos -->
+    <section class="cosmos-hero">
+        <div class="cosmos-nebula"></div>
+        <div class="cosmos-stars" id="cosmos-stars"></div>
+
+        <div class="cosmos-title">
+            <h1>NUEVOS PRODUCTOS</h1>
+            <p>Tecnología recién llegada a tu órbita</p>
+        </div>
+
+        <div class="earth-wrap">
+            <div class="earth-glow"></div>
+            <div class="earth-ring"></div>
+
+            <div class="mystery-orbit orbit-a"><i class="fas fa-microchip"></i></div>
+            <div class="mystery-orbit orbit-b"><i class="fas fa-headphones"></i></div>
+            <div class="mystery-orbit orbit-c"><i class="fas fa-bolt"></i></div>
+            <div class="mystery-orbit orbit-d"><i class="fas fa-gamepad"></i></div>
+            <div class="mystery-orbit orbit-e"><i class="fas fa-satellite"></i></div>
+
+            <div class="earth">
+                <div class="earth-grid"></div>
+                <div class="earth-lights" id="earth-lights"></div>
             </div>
         </div>
-        <!-- button arrows -->
-        <div class="arrows">
-            <button id="prev"><</button>
-            <button id="next">></button>
-        </div>
-        <!-- thumbnail -->
-        <div class="thumbnail">
-            <div class="item active">  
-                <div class="content">AUDIFONOS </div><a href="audifonos.html"><img src="Imagen/audifonos.jpg"> <button class="button2"></a></button></div>
-            <div class="item">
-                <div class="content">BELLEZA MUJER</div><a href="belleza mujer.html"><img src="Imagen/Bellaza M.jpg"><button class="button2"></a></button></div>
-            <div class="item">
-                <div class="content">BELLEZA HOMBRE</div><a href="belleza hombre.html"><img src="Imagen/Bellaza H.jpg"><button class="button2"></a></button></div>
-            <div class="item">
-                <div class="content">PARLANTES</div><a href="parlante.html"><img src="Imagen/Parlantes.jpg"><button class="button2"></a></button></div>
-            <div class="item">
-                <div class="content">HOGAR</div><a href="hogar.html"><img src="Imagen/Hogar.jpg"><button class="button2"></a></button></div>
-            <div class="item">
-                <div class="content">TECNOLOGIA</div><a href="tecnologia.html"><img src="Imagen/Tecnología .jpg"><button class="button2"></a></button></div>
+    </section>
+
+    <!-- Cuadrícula de productos nuevos -->
+    <div class="products-container">
+        <h2 style="text-align:center; color:#00f7ff; text-shadow:0 0 10px rgba(0,247,255,.7); margin-bottom:10px; letter-spacing:2px;">RECIÉN LLEGADOS</h2>
+        <div class="products-grid">
+
+            <article class="product-card">
+                <img src="Imagen/humificador fogata.png" alt="Producto" class="product-image">
+                <div class="product-info">
+                    <h2 class="product-title">Humificador de fogata</h2>
+                    <p class="product-description"><!-- descripción opcional --></p>
+                    <a href="humificador fogata.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                        <div class="dots_border"></div>
+                        <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                        <span class="text_button">$60.000</span>
+                    </a>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <img src="Imagen/smartwatch v11.png" alt="Producto" class="product-image">
+                <div class="product-info">
+                    <h2 class="product-title">smartwatch v11</h2>
+                    <p class="product-description"><!-- descripción opcional --></p>
+                    <a href="smartwatch v11.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                        <div class="dots_border"></div>
+                        <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                        <span class="text_button">$100.000</span>
+                    </a>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <img src="Imagen/teclado smart.png" alt="Producto" class="product-image">
+                <div class="product-info">
+                    <h2 class="product-title">Teclado smart</h2>
+                    <p class="product-description"><!-- descripción opcional --></p>
+                    <a href="teclado smart.html" title="Ver detalles" aria-label="Ver detalles" class="button">
+                        <div class="dots_border"></div>
+                        <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-icon"></use></svg>
+                        <span class="text_button">$25.000</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Copia el <article> de arriba por cada producto nuevo que quieras agregar -->
+
         </div>
     </div>
-    <script src="app.js"></script>
+
+    <!-- Ícono reusado por todos los botones de producto -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+        <symbol id="sparkle-icon" viewBox="0 0 24 24" fill="none">
+            <path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"></path>
+            <path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"></path>
+            <path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"></path>
+        </symbol>
+    </svg>
+
+    <a href="https://wa.me/573009821575" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Estrellas de fondo, con variedad de tamaño y color
+        (function crearEstrellasCosmos(){
+            const contenedor = document.getElementById('cosmos-stars');
+            if(!contenedor) return;
+            const colores = ['#ffffff', '#ffffff', '#ffffff', '#7fe8ff', '#e39bff'];
+            for(let i = 0; i < 110; i++){
+                const estrella = document.createElement('div');
+                estrella.className = 'estrella';
+                const tam = (Math.random() * 2.2 + 1).toFixed(1);
+                estrella.style.width = tam + 'px';
+                estrella.style.height = tam + 'px';
+                estrella.style.left = Math.random() * 100 + '%';
+                estrella.style.top = Math.random() * 100 + '%';
+                estrella.style.background = colores[Math.floor(Math.random() * colores.length)];
+                estrella.style.boxShadow = `0 0 ${Math.random() * 6 + 2}px ${estrella.style.background}`;
+                estrella.style.animationDelay = (Math.random() * 3.5) + 's';
+                contenedor.appendChild(estrella);
+            }
+        })();
+
+        // Luces de ciudad sobre el planeta (contenidas dentro del círculo)
+        (function crearLucesPlaneta(){
+            const contenedor = document.getElementById('earth-lights');
+            if(!contenedor) return;
+            const radio = 150; // mitad del ancho/alto de .earth (300px)
+            let colocadas = 0;
+            let intentos = 0;
+            while(colocadas < 45 && intentos < 400){
+                intentos++;
+                const x = Math.random() * 300;
+                const y = Math.random() * 300;
+                const dx = x - radio;
+                const dy = y - radio;
+                if(Math.sqrt(dx * dx + dy * dy) > radio - 12) continue; // fuera del círculo, descartar
+                const luz = document.createElement('div');
+                luz.className = 'luz';
+                luz.style.left = x + 'px';
+                luz.style.top = y + 'px';
+                luz.style.animationDelay = (Math.random() * 2.6) + 's';
+                contenedor.appendChild(luz);
+                colocadas++;
+            }
+        })();
+
+        // Estrellas decorativas del botón HOME
+        (function crearEstrellasHome(){
+            const btn = document.getElementById('space-btn');
+            if(!btn) return;
+            for(let i = 0; i < 25; i++){
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.position = 'absolute';
+                star.style.left = (Math.random() * 250) + 'px';
+                star.style.top = (Math.random() * 55) + 'px';
+                star.style.animationDelay = (Math.random() * 5) + 's';
+                star.style.transform = `scale(${(Math.random() * 1.8 + 0.1).toFixed(2)})`;
+                btn.appendChild(star);
+            }
+            for(let i = 1; i <= 4; i++){
+                const shoot = document.createElement('div');
+                shoot.className = `shooting-star shooting-star-${i}`;
+                shoot.style.animationDelay = (Math.random() * 5) + 's';
+                btn.appendChild(shoot);
+            }
+        })();
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.product-slider').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                arrows: false,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                responsive: [
+                    { breakpoint: 768, settings: { slidesToShow: 2 } }
+                ]
+            });
+        });
+    </script>
 </body>
 </html>

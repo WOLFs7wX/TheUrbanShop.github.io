@@ -714,7 +714,7 @@
                 </div>
             </div>
         </div>
-        <a href="https://wa.me/573009821575" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp"> <i class="fab fa-whatsapp"></i></a>
+        <a href="https://wa.me/573009821575?text=Hola,%20quiero%20más%20información%20sobre%20las%20Micros" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp"> <i class="fab fa-whatsapp"></i></a>
         <!-- Tabs -->
         <div class="tabs">
             <div class="tab-buttons">
@@ -778,39 +778,6 @@
                             <div class="rating-big">4.0</div>
                             <div class="stars">★★★★☆</div>
                         </div>
-                        <!-- Barras de calificación -->
-                        <div class="rating-bars">
-                            <div class="rating-bar-item">
-                                <span>5</span>
-                                <div class="bar-container">
-                                    <div class="bar" style="width: 45%"></div>
-                                </div>
-                            </div>
-                            <div class="rating-bar-item">
-                                <span>4</span>
-                                <div class="bar-container">
-                                    <div class="bar" style="width: 30%"></div>
-                                </div>
-                            </div>
-                            <div class="rating-bar-item">
-                                <span>3</span>
-                                <div class="bar-container">
-                                    <div class="bar" style="width: 15%"></div>
-                                </div>
-                            </div>
-                            <div class="rating-bar-item">
-                                <span>2</span>
-                                <div class="bar-container">
-                                    <div class="bar" style="width: 7%"></div>
-                                </div>
-                            </div>
-                            <div class="rating-bar-item">
-                                <span>1</span>
-                                <div class="bar-container">
-                                    <div class="bar" style="width: 3%"></div>
-                                </div>
-                            </div>
-                        </div>
                         <!-- Calificación de características -->
                         <div class="feature-ratings">
                             <h3>Calificación de características</h3>
@@ -856,12 +823,6 @@
     gap: 30px;
 }
 
-.ratings-summary {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 40px;
-}
-
 .overall-rating {
     text-align: center;
 }
@@ -875,43 +836,6 @@
 .total-ratings {
     color: #666;
     font-size: 14px;
-}
-
-.rating-bars {
-    margin-top: 20px;
-}
-
-.rating-bar-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 8px;
-}
-
-.bar-container {
-    flex-grow: 1;
-    background-color: #eee;
-    height: 8px;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.bar {
-    background-color: #ffd700;
-    height: 100%;
-}
-
-.feature-ratings {
-    grid-column: 1 / -1;
-    margin-top: 30px;
-}
-
-.feature-rating-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eee;
 }
 
 .featured-reviews {
@@ -944,12 +868,6 @@
 h3 {
     margin-bottom: 20px;
     color: #333;
-}
-
-@media (max-width: 768px) {
-    .ratings-summary {
-        grid-template-columns: 1fr;
-    }
 }
 </style>
 <script>

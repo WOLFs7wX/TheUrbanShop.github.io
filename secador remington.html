@@ -612,17 +612,41 @@
         <!--  -->
         <div class="product-slider">
             <div class="product-slide">
-                <a href="streaming box.html"><img src="Imagen/streaming box.png" alt="Producto 1"></a>
+                <a href="rizadora de 3.html"><img src="Imagen/rizadora de 3.png" alt="Producto 1"></a>
             </div>
             <div class="product-slide">
-                <a href="humificador 20.html"><img src="Imagen/Humificador Esfera.png" alt="Producto 2"></a>
+                <a href="maquina de donas.html"><img src="Imagen/maquina de donas.png" alt="Producto 2"></a>
             </div>
             <div class="product-slide">
-                <a href="proyector hy320.html"><img src="Imagen/proyector hy320.png" alt="Producto 3"></a>
+                <a href="Esfera.html"><img src="Imagen/Esfera de cristal.png" alt="Producto 3"></a>
             </div>
         </div>
         </nav>
     </header>
+    <script>
+        // Genera las estrellas decorativas del botón HOME (antes eran ~40 divs pegados a mano)
+        (function crearEstrellas(){
+            const btn = document.getElementById('space-btn');
+            if(!btn) return;
+            const total = 25;
+            for(let i = 0; i < total; i++){
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.position = 'absolute';
+                star.style.left = (Math.random() * 250) + 'px';
+                star.style.top = (Math.random() * 55) + 'px';
+                star.style.animationDelay = (Math.random() * 5) + 's';
+                star.style.transform = `scale(${(Math.random() * 1.8 + 0.1).toFixed(2)})`;
+                btn.appendChild(star);
+            }
+            for(let i = 1; i <= 4; i++){
+                const shoot = document.createElement('div');
+                shoot.className = `shooting-star shooting-star-${i}`;
+                shoot.style.animationDelay = (Math.random() * 5) + 's';
+                btn.appendChild(shoot);
+            }
+        })();
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script>
@@ -649,33 +673,37 @@
         <div class="product-grid">
             <!-- Galería de imágenes -->
             <div class="gallery">
-                <img src="Imagen/streaming device Onn.png"  alt="Producto" class="main-image">
+                <img src="Imagen/secador reimiogton.png"  alt="Producto" class="main-image">
                 <div class="thumbnails">
                     <div class="thumbnail">
-                        <img src="Imagen/streaming device Onn 1.png" alt="Miniatura 1">
+                        <img src="Imagen/secador reimiogton 1.png" alt="Miniatura 1">
                     </div>
                     <div class="thumbnail">
-                        <img src="Imagen/streaming device Onn 2.png" alt="Miniatura 2">
+                        <img src="Imagen/secador reimiogton 2.png" alt="Miniatura 2">
                     </div>
                     <div class="thumbnail">
-                        <img src="Imagen/streaming device Onn 3.png" alt="Miniatura 3">
+                        <img src="Imagen/secador reimiogton 3.png" alt="Miniatura 3">
                     </div>
                     <div class="thumbnail">
-                        <img src="Imagen/streaming device Onn 4.png" alt="Miniatura 4">
+                        <img src="Imagen/secador reimiogton 4.png" alt="Miniatura 4">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="Imagen/secador reimiogton 5.png" alt="Miniatura 5">
                     </div>
                 </div>
             </div>
             <!-- Información del producto -->
             <div class="product-info">
-                <h1>Google TV Stick ONN Full HD Streaming Device con Control por Voz.</h1>
-                <div class="price">$100.000</div>
+                <h1>Secador Profesional Remington</h1>
+                <div class="price">$45.000</div>
                 <div>
                     <p class="product-description">
-                    Convierte cualquier televisor con entrada HDMI en un Smart TV y disfruta de tus aplicaciones favoritas con el Google TV Stick ONN Full HD. Accede fácilmente a plataformas de streaming, contenido multimedia y miles de aplicaciones desde una interfaz moderna e intuitiva. Gracias a su control remoto con asistente de voz integrado, podrás buscar películas, series, videos y aplicaciones de forma rápida y sencilla. Su tamaño compacto permite transportarlo fácilmente para disfrutar entretenimiento donde quieras.</p>                    </p>
+                    Consigue un secado rápido y un acabado profesional desde la comodidad de tu hogar con el Secador Profesional Remington RE-2052 de 3000W. Incluye 5 accesorios intercambiables que permiten secar, moldear y dar volumen al cabello fácilmente. Su potente motor proporciona un flujo de aire constante para obtener resultados rápidos, siendo ideal tanto para uso personal como profesional.
+                    </p>
                 </div>
             </div>
         </div>
-        <a href="https://wa.me/573009821575?text=Hola,%20quiero%20más%20información%20sobre%20los%20streamin%20device" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp"> <i class="fab fa-whatsapp"></i></a>
+        <a href="https://wa.me/573009821575?text=Hola,%20quiero%20más%20información%20sobre%20el%20secador%20remington" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp"> <i class="fab fa-whatsapp"></i></a>
         <!-- Tabs -->
         <div class="tabs">
             <div class="tab-buttons">
@@ -691,53 +719,40 @@
                 <div class="specs-grid">
                     <div class="spec-item">
                         <div class="spec-label">Marca</div>
-                        <div class="spec-value">ONN</div>
+                        <div class="spec-value">Remington</div>
                     </div>
                     <div class="spec-item">
                         <div class="spec-label">Modelo</div>
-                        <div class="spec-value">Full HD Streaming Device</div>
+                        <div class="spec-value">RE-2052</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-label">Sistema operativo</div>
-                        <div class="spec-value">Google TV</div>
+                        <div class="spec-label">Potencia</div>
+                        <div class="spec-value">3000W</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-label">Resolución máxima</div>
-                        <div class="spec-value">Full HD 1080p</div>
+                        <div class="spec-label">Accesorios</div>
+                        <div class="spec-value">5 en 1</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-label">Conexión</div>
-                        <div class="spec-value">HDMI</div>
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-label">Conectividad</div>
-                        <div class="spec-value">Wifi</div>
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-label">Control por voz</div>
-                        <div class="spec-value">Si</div>
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-label">Compatibilidad</div>
-                        <div class="spec-value">Televisores con entrada HDMI</div>
+                        <div class="spec-label">Temperatura</div>
+                        <div class="spec-value">Ajustable</div>
                     </div>
                 </div>
             </div>
+
             <!-- Descripción -->
             <div class="tab-panel" id="description">
                 <div class="description">
                     <p>Características principales:</p>
                     <ul>
-                        <li>Convierte cualquier TV en Smart TV.</li>
-                        <li>Sistema Google TV intuitivo y moderno.</li>
-                        <li>Compatible con aplicaciones de streaming.</li>
-                        <li>Control remoto con comando de voz.</li>
-                        <li>Instalación rápida y sencilla.</li>
-                        <li>Conexión mediante HDMI.</li>
-                        <li>Diseño compacto y portátil.</li>
-                        <li>Acceso a miles de aplicaciones.</li>
-                        <li>Ideal para películas, series y entretenimiento.</li>
-                        <li>Navegación rápida y fluida.</li>
+                        <li>Potencia de 3000W para un secado rápido.</li>
+                        <li>Incluye 5 accesorios para diferentes estilos.</li>
+                        <li>Boquillas concentradoras para mayor precisión.</li>
+                        <li>Difusor para rizos y volumen natural.</li>
+                        <li>Múltiples niveles de temperatura y velocidad.</li>
+                        <li>Diseño ergonómico y ligero.</li>
+                        <li>Cable resistente para mayor comodidad.</li>
+                        <li>Ideal para uso doméstico y profesional.</li>
                     </ul>
                 </div>
             </div>
@@ -749,20 +764,20 @@
                         <div class="overall-rating">
                             <h2>Opiniones del producto</h2>
                             <div class="total-ratings">Calificacion</div>
-                            <div class="rating-big">4.9</div>
+                            <div class="rating-big">4.6</div>
                             <div class="stars">★★★★☆</div>
                         </div>
                         <!-- Calificación de características -->
                         <div class="feature-ratings">
                             <h3>Calificación de características</h3>
                             <div class="feature-rating-item">
-                                <span>Duración de bateria</span>
+                                <span>Potencia</span>
                                 <div class="feature-stars">
-                                    <div class="stars">★★★★☆</div>
+                                    <div class="stars">★★★★★</div>
                                 </div>
                             </div>
                             <div class="feature-rating-item">
-                                <span>Velocidad de navegación</span>
+                                <span>Velocidad de secado</span>
                                 <div class="feature-stars">
                                     <div class="stars">★★★★☆</div>
                                 </div>
@@ -770,19 +785,19 @@
                             <div class="feature-rating-item">
                                 <span>Relación precio-calidad</span>
                                 <div class="feature-stars">
-                                    <div class="stars">★★★★★</div>
+                                    <div class="stars">★★★★☆</div>
                                 </div>
                             </div>
                             <div class="feature-rating-item">
-                                <span>Calidad de streaming</span>
+                                <span>Calidad de los materiales</span>
                                 <div class="feature-stars">
-                                    <div class="stars">★★★★★</div>
+                                    <div class="stars">★★★★☆</div>
                                 </div>
                             </div>
                             <div class="feature-rating-item">
-                                <span>facilidad de uso</span>
+                                <span>Calidad producto</span>
                                 <div class="feature-stars">
-                                    <div class="stars">★★★★★</div>
+                                    <div class="stars">★★★☆☆</div>
                                 </div>
                             </div>
                         </div>

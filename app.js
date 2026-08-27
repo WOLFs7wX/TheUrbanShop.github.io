@@ -83,3 +83,60 @@ card.style.transform =
 'perspective(1000px) rotateX(0) rotateY(0)';
 });
 });
+
+//input
+(function terminalBuscador(){
+  const frases = [
+    "Buscar audífonos...",
+    "Buscar tecnología...",
+    "Buscar belleza...",
+    "Buscar para el hogar..."
+  ];
+  const textoEl = document.getElementById('search-terminal-text');
+  const overlay = document.getElementById('search-terminal');
+  const input = document.getElementById('search-input');
+  if(!textoEl || !overlay || !input) return;
+
+  let f = 0, c = 0, borrando = false;
+
+  function tick(){
+    const actual = frases[f];
+    if(!borrando){
+      textoEl.textContent = actual.slice(0, c + 1);
+      c++;
+      if(c === actual.length){
+        borrando = true;
+        setTimeout(tick, 1400);
+        return;
+      }
+    } else {
+      textoEl.textContent = actual.slice(0, c - 1);
+      c--;
+      if(c === 0){
+        borrando = false;
+        f = (f + 1) % frases.length;
+      }
+    }
+    setTimeout(tick, borrando ? 35 : 70);
+  }
+  tick();
+
+  function actualizarOverlay(){
+    overlay.style.opacity = (document.activeElement === input || input.value.length) ? '0' : '1';
+  }
+  input.addEventListener('focus', actualizarOverlay);
+  input.addEventListener('blur', actualizarOverlay);
+  input.addEventListener('input', actualizarOverlay);
+})();g
+(function pulsoAlEscribir(){
+    const input = document.getElementById('search-input');
+    const barra = document.getElementById('search-pulse-bar');
+    if(!input || !barra) return;
+    let timeout;
+
+    input.addEventListener('input', () => {
+        barra.classList.add('activo');
+        clearTimeout(timeout);
+        timeout = setTimeout(() => barra.classList.remove('activo'), 900);
+    });
+})();
